@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="STOCKINFO" directorySegmentName="seg_0" id="5A51C9BA-051D-79A3-CFC5-012776E4FFBA">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<schemaObject>28D47C7A-84E1-92EE-5940-49AEB371C03C</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>C74C05E5-281D-FA01-8270-7AAAC3A1EE5F</segment>
+<tableSpace>01061DF3-A7A9-544B-4E50-8B2F41475731</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CODE" id="44DA37B7-E61D-5BE5-E23E-C7FB3BC1E1D0">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STOCKPRICE" id="6CA16DC4-AADB-4C7C-DA08-EFBB986CCC8F">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STOCKID" id="B9EE33D1-A54D-CD40-CF26-C0592F09C749">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MEMBERID" id="E641BA39-91EE-0CE3-2810-6DA0A15B7D2B">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SYS_C0013727" id="3FBB622F-8597-5430-D414-9242A55A3DE3">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SYS_C0013726" id="C1BA20A9-C7C7-3F1B-5B24-2FE5F3FD3836">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="STOCKINFO_PK" id="25904FDB-40FB-DB97-2338-DB3CCED9A3EC">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<schemaObject>28D47C7A-84E1-92EE-5940-49AEB371C03C</schemaObject>
+<segment>086F3676-6322-2286-27CB-4FA720EEB4E2</segment>
+<tableSpace>01061DF3-A7A9-544B-4E50-8B2F41475731</tableSpace>
+<indexSegment>086F3676-6322-2286-27CB-4FA720EEB4E2</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

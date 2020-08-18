@@ -1,0 +1,151 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="ARTS" directorySegmentName="seg_0" id="0919E7CB-6A37-8596-673A-9645B0C968F3">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<schemaObject>28D47C7A-84E1-92EE-5940-49AEB371C03C</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>7D8E443D-D09C-E8EF-C197-EDF2604E6176</segment>
+<tableSpace>01061DF3-A7A9-544B-4E50-8B2F41475731</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CODE" id="053505E6-C61B-111F-481A-90EF79C04737">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PAGEURL" id="07C21BE3-BE2A-0228-0F4A-16E4F4C377E5">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LAT" id="0F16396A-B2C5-1C82-7B32-3D044F45A69F">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ARTVALUE" id="0F45E9A3-09F5-03D0-2C03-A3A6FC746571">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SIZEHO" id="247576DB-71FE-A2E1-5F87-C254299D8C19">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NOTE2" id="39CEEAED-477A-3D50-0673-1E35FBD0327B">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COLOR" id="3A077E12-406A-E885-C181-8DBCF766DE86">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NOTE1" id="3ADFE4C6-5227-FF31-F6AD-695C0BBEB8AE">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STATUS" id="4876C9E2-78B4-91D3-610E-388573AD8AB2">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NAME" id="4C9CB619-CA4A-A1DA-2AC5-467682B3E5EA">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="THEME" id="7068E12C-9082-D36A-9E3E-67ABEAE4C594">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="RENTALPRICE" id="8EDB72A6-99BD-627A-DCD4-89D60D6CC4FB">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MATERIAL" id="A5D728A5-B407-EB59-683E-BC0F18A550C0">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="WIDTH" id="B21E81DF-C3B7-B6E2-8467-97252349A830">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HEIGHT" id="C8921E90-1C45-95EF-1014-FBCCC110E19D">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODYEAR" id="CBC79FDF-0965-7DFE-8089-E1A039D5025B">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REGIDATE" id="D0F09EF9-20C4-D1AC-48D4-43D95946AA18">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IMAGEURL" id="E4AA8F56-5F89-519E-F5E3-7CB7CC342545">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LNG" id="E98A0CC9-A78F-2B21-13AC-1406B87E0F6B">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TITLE" id="F64448F1-53A0-DC66-1310-2A4806A331FA">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MEMBERID" id="F8A2DBC0-71B9-61C2-063B-AB719EEBDEC9">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SYS_C0011480" id="1544183B-E63C-778F-CD53-A76D934807B3">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<schemaObject>28D47C7A-84E1-92EE-5940-49AEB371C03C</schemaObject>
+<segment>9F954C0D-EB3B-045F-83F2-C243ABE25B32</segment>
+<tableSpace>01061DF3-A7A9-544B-4E50-8B2F41475731</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SYS_C0013781" id="6CCA1882-3D1E-94BB-6DA4-6505F7492060">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="SYS_C0011480" id="91374EEE-FBFF-57D6-ED8E-CE038D136991">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<segment>9F954C0D-EB3B-045F-83F2-C243ABE25B32</segment>
+<tableSpace>01061DF3-A7A9-544B-4E50-8B2F41475731</tableSpace>
+<existingIndex>1544183B-E63C-778F-CD53-A76D934807B3</existingIndex>
+<indexSegment>9F954C0D-EB3B-045F-83F2-C243ABE25B32</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

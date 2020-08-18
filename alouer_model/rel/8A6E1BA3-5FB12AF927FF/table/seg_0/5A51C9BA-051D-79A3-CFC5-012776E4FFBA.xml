@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5A51C9BA-051D-79A3-CFC5-012776E4FFBA" schemaObject="28D47C7A-84E1-92EE-5940-49AEB371C03C" name="STOCKINFO">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>8FAA119F-9E10-D5F6-2C8D-DABB054A3759</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="STOCKID" id="B9EE33D1-A54D-CD40-CF26-C0592F09C749">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>BC6860F9-53DE-EABB-AA69-246782B5139C</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CODE" id="44DA37B7-E61D-5BE5-E23E-C7FB3BC1E1D0">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>A0A36075-30B9-AC53-3D35-05B180CA7A55</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="11972D9E-DC23-5B71-3CD0-A82B42143B50" referredColumn="053505E6-C61B-111F-481A-90EF79C04737"/>
+</associations>
+</Column>
+<Column name="MEMBERID" id="E641BA39-91EE-0CE3-2810-6DA0A15B7D2B">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>15F088FC-86A9-CFD6-B670-B231E23B0F52</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0B907C01-B155-8046-336B-9A41390F578F" referredColumn="6F22D484-53BD-91FB-4F10-58A5C6965615"/>
+</associations>
+</Column>
+<Column name="STOCKPRICE" id="6CA16DC4-AADB-4C7C-DA08-EFBB986CCC8F">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>CB839240-47E9-3014-65B0-2CDD96FFB7D0</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="25904FDB-40FB-DB97-2338-DB3CCED9A3EC" schemaObject="28D47C7A-84E1-92EE-5940-49AEB371C03C" name="STOCKINFO_PK">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>CA5A9F9A-5507-C8B6-E423-458362173CD7</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B9EE33D1-A54D-CD40-CF26-C0592F09C749"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C1BA20A9-C7C7-3F1B-5B24-2FE5F3FD3836" name="SYS_C0013726">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="44DA37B7-E61D-5BE5-E23E-C7FB3BC1E1D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3FBB622F-8597-5430-D414-9242A55A3DE3" name="SYS_C0013727">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E641BA39-91EE-0CE3-2810-6DA0A15B7D2B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

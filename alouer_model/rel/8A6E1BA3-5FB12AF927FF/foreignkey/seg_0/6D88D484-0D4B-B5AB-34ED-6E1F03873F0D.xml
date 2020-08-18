@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="6D88D484-0D4B-B5AB-34ED-6E1F03873F0D" containerWithKeyObject="F3BA1BE3-C3F3-E59D-B3A0-B0A2CC716903" localFKIndex="0E7B7145-6F76-4572-1B84-35A75FA8BB1F" name="AUCTIONID_FK">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>15976974-8834-92C6-79F8-79B84E8C983B</importedID>
+<referredTableLongName>KOSMO.AUCTIONINFO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<mandatory>false</mandatory>
+<refColNames>AUCTIONID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

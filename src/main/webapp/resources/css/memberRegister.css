@@ -1,0 +1,522 @@
+@charset "utf-8";
+
+#idCheck{
+	display: block;
+	float: right; 
+	width: 100px;
+	height: 21px;
+	border: 0;
+	outline: 0;
+	background-color: #222;
+	font-size: 14px;
+	color: #fff;
+	transition: opacity 0.1s ease-in-out;
+}
+
+
+
+
+
+#contents {
+	background-color: #ffffff
+}
+
+#joinPage {
+	position: relative;
+	width: 96%;
+	max-width: 480px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 48px 30px;
+	border: 1px solid #dfdfdf;
+	margin: 100px auto 60px;
+	line-height: 1.5;
+	background-color: #fff
+}
+
+#joinPage-header {
+	margin-bottom: 48px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold
+}
+
+.joinPage-row {
+	margin-bottom: 10px
+}
+
+.joinPage-row {
+	margin-bottom: 10px
+}
+
+.joinPage-row.last {
+	margin-bottom: 24px
+}
+
+.joinPage-labelWrapper {
+	margin-bottom: 4px;
+	font-size: 12px;
+	color: #989898
+}
+
+.joinPage-message1 {
+	float: right;
+	color: #df3b32
+}
+
+.joinPage-input {
+	display: block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	height: 36px;
+	padding: 0 10px;
+	border: 1px solid #dfdfdf;
+	outline: 0;
+	font-size: 14px;
+	line-height: 34px
+}
+
+#joinPage-emailWrapper {
+	position: relative
+}
+
+#joinPage-email1-container {
+	margin-right: 52.5%
+}
+
+#joinPage-email2-container {
+	position: absolute;
+	width: 52.5%;
+	top: 0;
+	right: 0
+}
+
+#joinPage-email2-container>span {
+	display: block;
+	width: 10%;
+	line-height: 36px;
+	text-align: center
+}
+
+#joinPage-input-email2_man {
+	display: none
+}
+
+#joinPage-input-email2 {
+	position: absolute;
+	width: 90%;
+	top: 0;
+	right: 0
+}
+
+#joinPage-emailWrapper.manually #joinPage-email1-container {
+	margin-right: 316px
+}
+
+#joinPage-emailWrapper.manually #joinPage-email2-container {
+	width: 316px
+}
+
+#joinPage-emailWrapper.manually #joinPage-email2-container>span {
+	width: 24px
+}
+
+#joinPage-emailWrapper.manually #joinPage-input-email2_man {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 128px;
+	width: 164px
+}
+
+#joinPage-emailWrapper.manually #joinPage-input-email2 {
+	width: 120px
+}
+
+#joinPage-input-email {
+	display: block;
+	width: 0;
+	height: 0;
+	padding: 0;
+	border: 0
+}
+
+#joinPage-profile {
+	position: relative;
+	padding: 16px 20px;
+	border: 1px solid #dfdfdf;
+	margin: 20px 0
+}
+
+.joinPage-profile-row {
+	margin-bottom: 10px
+}
+
+.joinPage-profile-row:last-child {
+	margin-bottom: 0
+}
+
+.joinPage-profile-label {
+	display: block;
+	margin-bottom: 4px;
+	font-size: 12px;
+	color: #989898
+}
+
+.joinPage-profile-box {
+	height: 36px;
+	line-height: 34px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #dfdfdf;
+	background-color: #eee
+}
+
+.joinPage-profile-column-left {
+	float: left;
+	width: 60%
+}
+
+.joinPage-profile-column-right {
+	float: right;
+	width: 35%
+}
+
+#joinPage-profile-mask {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding-top: 60px;
+	background-color: rgba(250, 250, 250, 0.9);
+	overflow: hidden
+}
+
+#joinPage-profile-mask>p {
+	font-size: 14px;
+	text-align: center
+}
+
+#joinPage-profile-certifyButton {
+	display: block;
+	width: 200px;
+	height: 46px;
+	border: 0;
+	outline: 0;
+	margin: 16px auto 0;
+	background-color: #222;
+	font-size: 14px;
+	color: #fff;
+	transition: opacity 0.1s ease-in-out
+}
+
+#joinPage-profile-certifyButton:hover {
+	opacity: 0.9
+}
+
+#joinPage-profile.certified #joinPage-profile-mask {
+	display: none
+}
+
+#joinPage-profile.certified .joinPage-profile-box {
+	border: none;
+	background-color: transparent
+}
+
+#joinPage-address1-container {
+	position: relative;
+	padding-right: 89px;
+	margin-bottom: 7px
+}
+
+#joinPage-addressButton {
+	position: absolute;
+	width: 82px;
+	height: 36px;
+	top: 0;
+	right: 0;
+	border: 1px solid #222;
+	outline: none;
+	background-color: #fff;
+	font-size: 14px
+}
+
+.joinPage-button {
+	display: block;
+	width: 100%;
+	height: 46px;
+	border: 0;
+	outline: 0;
+	font-size: 16px;
+	background-color: #222;
+	color: #fff;
+	transition: opacity 0.1s ease-in-out
+}
+
+.joinPage-button:hover {
+	opacity: 0.9
+}
+
+@media screen and (max-width:543px) {
+	#joinPage {
+		padding: 24px 15px;
+		margin: 50px auto 36px
+	}
+	#joinPage-header {
+		margin-bottom: 36px;
+		font-size: 18px
+	}
+	.joinPage-input {
+		padding: 0 8px
+	}
+	#joinPage-email1-container {
+		margin-right: 160px
+	}
+	#joinPage-email2-container {
+		width: 160px
+	}
+	#joinPage-email2-container>span {
+		width: 24px
+	}
+	#joinPage-input-email2 {
+		width: 136px
+	}
+	#joinPage-emailWrapper.manually #joinPage-email1-container {
+		margin-right: 202px
+	}
+	#joinPage-emailWrapper.manually #joinPage-email2-container {
+		width: 202px
+	}
+	#joinPage-emailWrapper.manually #joinPage-email2-container>span {
+		width: 20px
+	}
+	#joinPage-emailWrapper.manually #joinPage-input-email2_man {
+		right: 88px;
+		width: 94px
+	}
+	#joinPage-emailWrapper.manually #joinPage-input-email2 {
+		width: 82px;
+		padding: 0
+	}
+	.joinPage-button {
+		font-size: 14px
+	}
+	#joinPage-profile-mask>p {
+		font-size: 12px
+	}
+}
+
+#popup_wrapper .overlay.search_address .x_btn_wrapper {
+	max-width: 600px;
+	width: 98%
+}
+
+.search_address_wrapper {
+	max-width: 600px;
+	width: 98%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin: 0 auto;
+	background-color: #fff;
+	cursor: auto;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 2em 1.5em
+}
+
+.search_address_header h2.title {
+	display: inline-block;
+	padding: 20px 0.5em 0.3em 0;
+	border-top: 3px solid #1c1c1c;
+	font-size: 1.5625em
+}
+
+.search_address_body {
+	
+}
+
+.search_address_body div.form_inner {
+	position: relative;
+	margin: 1em auto
+}
+
+.search_address_body div.form_inner div.input_wrapper {
+	margin-right: 5em;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box
+}
+
+.search_address_body div.form_inner div.input_wrapper input {
+	width: 100%;
+	height: 45px;
+	border: 2px solid #1c1c1c;
+	padding: 1px 5px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	font-size: 0.875em;
+	outline: none
+}
+
+.search_address_body div.form_inner input.submit {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 5em;
+	background-color: #1c1c1c;
+	color: #fff;
+	outline: none;
+	border: 1px solid #1c1c1c;
+	font-weight: bold
+}
+
+.search_address_body div.form_inner input.submit:hover {
+	background-color: #3d3d3d
+}
+
+.search_address_body div.description {
+	line-height: 1.2
+}
+
+.search_address_body div.description p {
+	font-size: 0.875em;
+	margin: 0.4em 0
+}
+
+.search_address_body div.description p span.eg {
+	color: #999
+}
+
+.search_address_body div.result {
+	margin-top: 1.5em
+}
+
+.search_address_body div.result div.result_error {
+	color: #f33
+}
+
+.search_address_body div.result div.result_success {
+	
+}
+
+.search_address_body div.result div.result_success h3 {
+	font-size: 1em;
+	margin-bottom: 0.3em
+}
+
+.search_address_body div.result div.result_success h3 span.result_count
+	{
+	font-weight: bold
+}
+
+.search_address_body div.result div.result_success table {
+	width: 100%;
+	font-size: 0.875em
+}
+
+.search_address_body div.result div.result_success tbody tr {
+	cursor: pointer
+}
+
+.search_address_body div.result div.result_success tbody tr:hover {
+	background-color: #eee
+}
+
+.search_address_body div.result div.result_success th {
+	background-color: #5d5d5d;
+	color: #fff;
+	text-align: center;
+	padding: 0.3em;
+	white-space: nowrap
+}
+
+.search_address_body div.result div.result_success th.no {
+	border-left: 1px solid #5d5d5d
+}
+
+.search_address_body div.result div.result_success th.zip {
+	border-right: 1px solid #5d5d5d
+}
+
+.search_address_body div.result div.result_success td {
+	border-bottom: 1px solid #5d5d5d;
+	line-height: 1.3;
+	height: 4em
+}
+
+.search_address_body div.result div.result_success td.no {
+	text-align: center;
+	border-left: 1px solid #5d5d5d
+}
+
+.search_address_body div.result div.result_success td.address span.road
+	{
+	
+}
+
+.search_address_body div.result div.result_success td.address span.jibun
+	{
+	color: #999;
+	font-size: 0.85714em
+}
+
+.search_address_body div.result div.result_success td.zip {
+	text-align: center;
+	border-right: 1px solid #5d5d5d
+}
+
+.search_address_body div.result div.result_success div.pagination {
+	
+}
+
+.search_address_body div.result div.result_success div.pagination div.pgn_wrap
+	{
+	text-align: center;
+	margin-top: 0.8em;
+	font-size: 0.875em
+}
+
+.search_address_body div.result div.result_success div.pagination div.pgn_wrap span
+	{
+	display: inline-block;
+	padding: 0.1em 0.25em;
+	margin: 0 0.3em;
+	cursor: pointer
+}
+
+.search_address_body div.result div.result_success div.pagination div.pgn_wrap span:hover
+	{
+	background-color: #eee
+}
+
+.search_address_body div.result div.result_success div.pagination div.pgn_wrap span.current,
+	.search_address_body div.result div.result_success div.pagination div.pgn_wrap span.current:hover
+	{
+	font-weight: bold;
+	cursor: default;
+	background-color: #1c1c1c;
+	color: #fff
+}
+
+@media screen and (max-width:480px) {
+	.search_address_wrapper {
+		padding: 1.5em 1em
+	}
+	.search_address_body {
+		font-size: 0.8em
+	}
+}
+
+.cf:after {
+	content: " ";
+	display: block;
+	height: 0;
+	clear: both;
+	overflow: hidden;
+	visibility: hidden
+}

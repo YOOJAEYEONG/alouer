@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.AdminImpl">
+		
+		
+		<select id="getTotalArtsCount" resultType = "int" parameterType="mybatis.ParameterDTO">
+			SELECT COUNT(*) FROM arts
+			<if test="searchTxt != null and !searchTxt.equals('')">
+				WHERE ${searchField} like '%'||#{searchTxt}||'%'
+			</if>
+		
+		</select>
+		
+		<!-- 가져올 작품의 총 개수 -->
+		<select id="getTotalCount" resultType="int" parameterType="mybatis.ParameterDTO">		
+			
+			select count(*) 
+				from arts C 
+				Left join
+				(SELECT A.* 
+				FROM rental_trans A
+				INNER JOIN(SELECT code, MAX(idx) 
+				    idx FROM rental_trans 
+				    GROUP BY code) B ON A.code = B.code 
+				    AND A.idx = B.idx
+				ORDER BY B.idx DESC)D
+				on C.code = D.code  where 1=1
+                   <if test="searchTxt != null and !searchTxt.equals('')">
+		               AND ${searchField} LIKE '%'||#{searchTxt}||'%'
+		            </if> 
+		            ORDER BY idx DESC        
+
+		</select>
+
+    	<select id="listPage" resultType="mybatis.RentalTransDTO" parameterType="mybatis.ParameterDTO">
+    	 SELECT * FROM (
+            SELECT Tb.*, rownum rNum FROM (
+               select C.title, C.name, C.status, C.code,
+               		D.memberId, D.idx, D.transType, D.rentalBegin,
+               		D.rentalEnd, D.returnDate, D.totalAmount               		 
+					from arts C 
+					LEFT join
+					(SELECT A.* 
+					FROM rental_trans A
+					INNER JOIN(SELECT code, MAX(idx) 
+					    idx FROM rental_trans 
+					    GROUP BY code) B ON A.code = B.code 
+					    AND A.idx = B.idx
+					ORDER BY B.idx DESC)D
+					on C.code = D.code  
+				<if test="searchTxt != null and !searchTxt.equals('')">
+                  where ${searchField} LIKE '%'||#{searchTxt}||'%'
+               </if>                        
+               ORDER BY D.rentalBegin, D.idx DESC
+            ) Tb
+         )
+         WHERE rNum BETWEEN ${start} AND ${end}    	
+      </select>      
+
+		
+		<!-- 작품별 거래내역 -->
+ 		<select id="rentalList" resultType="mybatis.RentalTransDTO" parameterType="mybatis.ParameterDTO">
+			SELECT * FROM (
+				SELECT Tb.*, rownum rNum FROM (
+					SELECT * from rental_trans
+              			WHERE code = #{code}
+					<if test="searchTxt != null and !searchTxt.equals('')">
+						AND ${searchField} LIKE '%'||#{searchTxt}||'%'
+					</if>
+					ORDER BY idx DESC
+				) Tb
+			)
+			WHERE rNum BETWEEN ${start} AND ${end}
+		</select>
+		
+		<select id="rentalTransCount" resultType = "int">
+			SELECT count(*) FROM
+				 (SELECT * from rental_trans
+              			WHERE code = #{code}
+					<if test="searchTxt != null and !searchTxt.equals('')">
+						AND ${searchField} LIKE '%'||#{searchTxt}||'%'
+					</if>
+					ORDER BY idx DESC)
+			
+		
+		</select>
+		
+		
+		
+		<insert id="insertRT" parameterType ="mybatis.RentalTransDTO">
+			INSERT INTO rental_trans(idx, memberId, code, transType, rentalBegin,rentalEnd
+			<if test="returnDate !=null and !returnDate.equals('')">
+			, returnDate
+			</if>
+			 )
+			values( 	'R-'||rental_tr_seq.nextval,
+						#{memberId},
+						#{code},
+						#{transType},
+						#{rentalBegin},
+						#{rentalEnd}
+						<if test="returnDate !=null and !returnDate.equals('')">
+						,#{returnDate}
+						</if>
+						)
+						
+		</insert>
+		
+		<update id="updateStatus" parameterType="mybatis.RentalTransDTO">			
+			UPDATE arts SET status = #{transType} WHERE code = #{code}	
+		</update>
+		
+		<delete id="deleteBook" parameterType="String">
+			DELETE rentalwaiting WHERE code = #{param1}
+		</delete>
+		
+<!-- 		<update id="modifyRT" parameterType ="mybatis.RentalTransDTO">
+			UPDATE rental_trans SET 
+						memberId = #{memberId},
+						transType = #{transType},
+						rentalBegin = #{rentalBegin},
+						rentalEnd = #{rentalEnd}
+						<if test="returnDate !=null and !returnDate.equals('')">
+							,returnDate = #{returnDate}
+						</if>
+						
+						where idx = #{idx}
+		</update> -->
+
+			
+		<select id="idCheck" resultType="int" parameterType="String">
+			SELECT count(*) FROM alouer_member WHERE memberId = #{param1}
+		</select>		
+
+		
+
+		<!-- 작품정보 조건에 맞게 가져오기 -->
+		<select id="artListPage" resultType="mybatis.ArtsDTO" parameterType="mybatis.ParameterDTO">
+				SELECT * FROM (
+					SELECT Tb.*, rownum rNum FROM (
+						SELECT * FROM arts
+						<if test="searchTxt!=null and !searchTxt.equals('')">
+							WHERE ${searchField} LIKE '%'||#{searchTxt}||'%'  
+						</if>
+						ORDER BY a_idx DESC
+					) Tb
+				)
+				WHERE rNum BETWEEN #{start} AND #{end}
+		</select>
+		
+		
+		<insert id="writeAction">
+			INSERT INTO arts (  A_IDX,
+								CODE,
+								TITLE,
+								MEMBERID,
+								NAME,
+								NOTE1,
+								NOTE2,
+								MATERIAL,
+								PRODYEAR,
+								SIZEHO,
+								HEIGHT,
+								WIDTH,
+								REGIDATE,
+								IMAGEURL,
+								ARTVALUE,
+								RENTALPRICE,
+								THEME,
+								COLOR,
+								STATUS
+								)
+			VALUES (			ARTS_SEQ.NEXTVAL,
+								#{code},
+								#{title},
+								#{memberId},
+								#{name},
+								#{note1},
+								#{note2},
+								#{material},
+								#{prodYear},
+								#{sizeHo},
+								#{height},
+								#{width},
+								#{regiDate},
+								#{imageUrl},
+								#{artValue},
+								#{rentalPrice},
+								#{theme},
+								#{color},
+								#{status}
+			)
+		</insert>
+		
+
+
+		<!-- 예약관련 매퍼 -->
+		
+		<select id="bookListPage" resultType="mybatis.BookingDTO" parameterType="mybatis.BookingDTO">
+			SELECT * FROM (
+				SELECT Tb.*, rownum rNum FROM (
+					SELECT * FROM rentalwaiting
+              			WHERE code = #{code}
+					ORDER BY idx DESC
+				) Tb
+			)
+			WHERE rNum BETWEEN ${start} AND ${end}
+		</select>
+		
+		
+		<!-- 가져올 예약의 총 개수 -->
+		<select id="getBookCount" resultType="int" parameterType="mybatis.ParameterDTO">
+			SELECT COUNT (*) from rentalwaiting WHERE code = #{code}
+<!-- 			<if test="searchTxt!=null and !searchTxt.equals('')">
+				WHERE ${searchField} like '%'||#{searchTxt}||'%'
+			</if> -->
+		</select>
+		
+
+		<!-- 작품코드에 맞는 작품정보 가져오기 -->
+		<select id="modifyAT" resultType="mybatis.ArtsDTO" parameterType="mybatis.ArtsDTO">
+			SELECT * FROM arts WHERE code=#{code}
+		</select>
+
+		<update id="modifyAction" >
+			UPDATE arts SET 
+								CODE=#{code},
+								TITLE=#{title},
+								MEMBERID=#{memberId},
+								NAME=#{name},
+								NOTE1=#{note1},
+								NOTE2=#{note2},
+								MATERIAL=#{material},
+								PRODYEAR=#{prodYear},
+								SIZEHO=#{sizeHo},
+								HEIGHT=#{height},
+								WIDTH=#{width},
+								REGIDATE=#{regiDate},
+								<if test="imageUrl!=null and !imageUrl.equals('')">
+									IMAGEURL=#{imageUrl},
+								</if>
+								ARTVALUE=#{artValue},
+								RENTALPRICE=#{rentalPrice},
+								THEME=#{theme},
+								COLOR=#{color},
+								STATUS=#{status}
+			WHERE code = #{code}
+		</update>
+
+		
+		<delete id="deleteAction">
+         DELETE from arts where code=#{code}
+
+         </delete>
+
+
+		
+		
+		
+	<!-- admin > auction ///////////////////////////-->
+		
+	<select id="getAuctionTotalCount" resultType="int"
+		parameterType="mybatis.ParameterDTO">
+		SELECT count(*) FROM (
+			SELECT * FROM 
+					(SELECT * FROM arts WHERE status = '지분경매')
+			<if test="searchTxt != null and !searchTxt.equals('')">
+				WHERE 1=1 
+				INTERSECT
+				SELECT * FROM arts WHERE (code||title||name) LIKE '%'||#{searchTxt}||'%'
+			</if>
+		)
+	</select> 
+	
+	<!-- 경매등록정보 리스트 -->
+	<select id="auctionListPage" 
+		parameterType="mybatis.ParameterDTO" 
+		resultType="mybatis.AuctionInfoDTO">
+	    SELECT * FROM (
+        	SELECT rownum R, B.* FROM (
+           		SELECT A.*, arts.title, name FROM 
+                	(SELECT * FROM auctioninfo)A 
+                    	INNER JOIN arts ON A.code = arts.code
+					<if test="searchTxt != null and !searchTxt.equals('')">
+                    	WHERE arts.${searchField} LIKE '%'||#{searchTxt }||'%'
+                    </if>
+                    	ORDER BY auctionid DESC
+          	) B      
+	    )
+	    WHERE R BETWEEN ${start} AND ${end}
+	</select>
+	
+	<select id="terminatingAuctionList" resultType="mybatis.AuctionInfoDTO">
+		SELECT * FROM (    
+		    SELECT A.*, ROWNUM R FROM (        
+		        SELECT * FROM auctioninfo INF
+		         INNER JOIN arts 
+       			 ON INF.code = arts.code
+		        WHERE isfinish = 0 
+		        ORDER BY endtime ASC 
+		    ) A 
+		)WHERE R BETWEEN 1 AND 5
+	</select>
+	
+
+		<select id="getAuctionNewTotalCount" resultType="int"
+		parameterType="mybatis.ParameterDTO">
+		SELECT count(*) FROM (
+			SELECT * FROM 
+					(SELECT * FROM arts WHERE status = '지분경매')
+			<if test="searchTxt != null and !searchTxt.equals('')">
+				WHERE status='경매준비중' 
+				INTERSECT
+				SELECT * FROM arts WHERE (code||title||name) LIKE '%'||#{searchTxt}||'%'
+			</if>
+		)
+	</select> 
+	
+		
+	<!-- 관리자 메인 화면 대시 보드에 오늘 매출액 출력 -->
+	<select id="todayRentalCount" resultType="int" >
+		SELECT B.total FROM (
+		SELECT max(dat) as dat FROM
+		    (SELECT to_char(ordertime,'YYYYMMDD') as dat FROM rental_trans 
+		    GROUP BY to_char(ordertime,'YYYYMMDD'))
+		    ) A
+		    INNER JOIN 
+		    (SELECT to_char(ordertime,'YYYYMMDD') as dat, 
+		    count(totalamount) total FROM rental_trans 
+		    group by to_char(ordertime,'YYYYMMDD'))B 
+		    ON A.dat = B.dat
+	</select>		
+	
+	<!-- 관리자 메인 화면 대시 보드에 오늘 경매건수 출력 -->
+	<select id="AuctionCount" resultType="int" >
+		SELECT COUNT(*) FROM arts WHERE status= '지분경매'
+	</select>		
+	
+	<!-- 신규등록 작품(경매준비중) 조회 -->
+	<select id="aucReadyList" 
+		parameterType="mybatis.ParameterDTO" 
+		resultType="mybatis.ArtsDTO">
+	    SELECT * FROM (
+        	SELECT rownum R, B.* FROM (
+           		SELECT * FROM arts 
+           			WHERE status='경매준비중' 
+					<if test="searchTxt != null and !searchTxt.equals('')">
+                    	AND ${searchField} LIKE '%'||#{searchTxt }||'%'
+                    </if>
+                    	ORDER BY a_idx DESC
+          	) B      
+	    )
+	    WHERE R BETWEEN ${start} AND ${end}
+	</select>
+	
+	<!-- 일자별 렌탈 매출액 -->
+	<select id="getRentalSales" resultType="int">
+		select sumtot from
+			(select 
+				sum(totalamount) as sumtot from rental_trans
+				group by to_char(ordertime,'YYYYMMDD') 
+				order by to_char(ordertime,'YYYYMMDD') asc) 
+				where rownum between 1 and 7
+	
+	</select>
+	<!-- 일자별 경매매출 -->
+	<select  id="dailyAuctionSales" resultType="int">
+		select sumtot from
+			(select 
+			sum(stockprice) as sumtot from stockinfo
+			group by to_char(datelog,'YYYYMMDD') 
+			order by to_char(datelog,'YYYYMMDD') asc) 
+			where rownum between 1 and 7
+	</select>
+	
+	<select id="totalSales" resultType = "Integer">
+			select sumrental + NVL(sumauc,0)
+			from
+			(select sumrental, rentaldate from
+			(select 
+			sum(totalamount) as sumrental, to_char(ordertime,'YYYYMMDD') as rentaldate  from rental_trans
+			group by to_char(ordertime,'YYYYMMDD') order by to_char(ordertime,'YYYYMMDD') asc) where rownum between 1 and 7) A
+			FULL OUTER JOIN
+			(select sumauc, aucdate from
+			(select 
+			sum(stockprice) as sumauc, to_char(datelog,'YYYYMMDD') as aucdate from stockinfo
+			group by to_char(datelog,'YYYYMMDD') order by to_char(datelog,'YYYYMMDD') asc) where rownum between 1 and 7) B
+			ON rentaldate = aucdate
+	
+	</select>
+	
+	
+
+	<!-- admin > auction (END)///////////////////////////-->
+	<select id="countStatusGroup" resultType="mybatis.ArtsDTO" >
+		SELECT status, COUNT(status) AS sum FROM arts GROUP BY status
+	</select>
+	
+	<select id="getday" resultType="String">
+	select 
+		to_char(to_date(to_char(ordertime,'YYYYMMDD'), 'YYYYMMDD'), 'd') 
+		from rental_trans 
+		group by to_char(ordertime,'YYYYMMDD') 
+		order by to_char(ordertime,'YYYYMMDD') asc
+	</select>
+
+
+	
+	<!-- 관리자 메인 화면 대시 보드에 오늘 신규 등록된 작품 수 출력 -->
+	<select id="todayUploadArts" resultType="int" >
+		SELECT COUNT(*) FROM arts WHERE regidate= 
+		(SELECT TO_CHAR(SYSDATE, 'YY/MM/DD') FROM DUAL)
+	</select>	
+	
+	<!-- 오늘의 매출액 -->
+	<select id="todayAucSales" resultType = "int">
+		select sum(NVL(stockprice, 0)) from stockinfo where to_char(sysdate, 'YYYYMMDD') = to_char(datelog, 'YYYYMMDD')
+
+	
+	</select>
+	<select id="todayRentalSales" resultType = "int">
+		select sum(NVL(totalamount, 0)) from rental_trans where to_char(sysdate, 'YYYYMMDD') = to_char(ordertime, 'YYYYMMDD')
+	</select>
+	
+	<select id="todaySales" resultType="int">
+		select NVL(stprice, 0) + NVL(rtprice, 0) from
+		(select sum(stockprice) as stprice, to_char(sysdate, 'YYYYMMDD') as today from
+		stockinfo where to_char(sysdate, 'YYYYMMDD') = to_char(datelog,
+		'YYYYMMDD')) A
+		INNER JOIN
+		(select sum(totalamount) as rtprice, to_char(sysdate, 'YYYYMMDD') as today
+		from rental_trans where to_char(sysdate, 'YYYYMMDD') =
+		to_char(ordertime, 'YYYYMMDD')) B
+		ON A.today = B.today
+		
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

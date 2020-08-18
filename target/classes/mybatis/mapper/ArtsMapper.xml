@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="mybatis.ArtsImpl">
+	<insert id="artregister" parameterType="mybatis.ArtsDTO">
+		INSERT INTO arts(
+				code,
+				title,
+				memberId,
+				name,
+				note1,
+				note2,
+				material,
+				prodYear,
+				sizeHo,
+				height,
+				width,
+				imageUrl,
+				artValue,
+				rentalPrice,
+				pageUrl,
+				theme,
+				color) 
+		VALUES(
+				#{code},
+				#{title},
+				#{memberId},
+				#{name},
+				#{note1},
+				#{note2},
+				#{material},
+				#{prodYear},
+				#{sizeHo},
+				#{height},
+				#{width},
+				#{imageUrl},
+				#{artValue, jdbcType=VARCHAR},
+				#{rentalPrice},
+				#{pageUrl},
+				#{theme},
+				#{color})
+	</insert>
+	
+	
+	<select id="artExist" parameterType="mybatis.ArtsDTO" resultType="int">
+		SELECT count(*) FROM arts WHERE code = #{code }
+	
+	</select>
+
+</mapper>

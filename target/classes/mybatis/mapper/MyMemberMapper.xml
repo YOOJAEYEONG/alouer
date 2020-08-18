@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<!--
+매개변수를 받는 두번째 방법으로 #{0}, #{1}과 같이 인덱스로 받을 수 있다.  
+-->
+
+<mapper namespace="mybatis.MemberImpl">
+
+
+	
+	<insert id="memberJoinMethod" parameterType="mybatis.MemberVO">
+		INSERT INTO alouer_member(memberId, pass)
+			VALUES(#{memberId}, #{pass})	
+	</insert>
+	
+	
+   <select id="memExist" parameterType="mybatis.MemberVO" resultType="int">
+      SELECT count(*) FROM alouer_member WHERE memberId = #{memberId }
+   </select>
+	
+	
+	<select id="memberLoginCheckMethod" parameterType="mybatis.MemberVO" resultType="int">
+	  SELECT count(*) FROM alouer_member WHERE memberId = #{memberId } AND pass=#{pass }
+	</select>
+	
+	<select id="mypageIdPwdCheckMethod" parameterType="mybatis.MemberVO" resultType="int">
+	  SELECT count(*) FROM alouer_member WHERE memberId = #{memberId } AND pass=#{pass }
+	</select>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="mypageModifyPwdChangeMethod" parameterType="mybatis.MemberVO">
+		UPDATE alouer_member SET pass = #{pass } WHERE memberId = #{memberId }
+	</update>
+	
+	<!-- 회원정보수정 페이지 들어갈 때 회원 정보 가지고 오는 메소드 -->
+	<select id="MemberInfoMethod" parameterType="mybatis.MemberVO" resultType="mybatis.MemberVO">
+	  SELECT * FROM alouer_member WHERE memberId = #{memberId }
+	</select>	
+
+	<!-- 회원정보수정 페이지에서 회원정보 변경할 때 사용하는 메소드 -->
+   <update id="MemberInfoUpdateMethod" parameterType="mybatis.MemberVO">
+      UPDATE alouer_member
+      <trim prefix="SET" suffixOverrides=",">
+         <if test="name != null">name = #{name },</if>
+         <if test="birth != null and !birth.equals('')" >birth= #{birth },</if>
+         <if test="hp != null">hp= #{hp },</if>
+         <if test="address != null">address= #{address },</if>
+         <if test="subscribe != null">subscribe= #{subscribe },</if>
+      </trim>
+      WHERE
+         memberId = #{memberId}
+   </update>
+   
+
+	<!-- 1:1문의 게시판 들어갈 때 -->
+ 	 <select id="mypageInquiryMethod" parameterType="String" resultType="mybatis.MyBoardDTO">
+   		SELECT * FROM alouer_board 
+   			WHERE bname = 'inquiry' AND memberid = #{memberId }
+	</select>	
+	 
+	<!-- 작가가 마이페이지 작품 올리기할 때  -->
+	<insert id="artistWriteAction">
+		INSERT INTO arts (
+			A_IDX,
+			CODE, 	 		TITLE, 		 MEMBERID, 		NAME,
+			MATERIAL, 		PRODYEAR, 	 HEIGHT, 		WIDTH, 
+			REGIDATE, 		IMAGEURL, 	 ARTVALUE, 		RENTALPRICE, 
+			THEME, 			COLOR, 		 STATUS)
+		VALUES (
+			ARTS_SEQ.NEXTVAL,
+			#{code},		#{title}, 	 #{memberId},	#{name},
+			#{material},	#{prodYear}, #{height},		#{width},
+			#{regiDate},	#{imageUrl}, #{artValue},	#{rentalPrice},
+			#{theme},		#{color},    #{status})
+	</insert>
+		
+	
+	
+
+</mapper>
+
+
+

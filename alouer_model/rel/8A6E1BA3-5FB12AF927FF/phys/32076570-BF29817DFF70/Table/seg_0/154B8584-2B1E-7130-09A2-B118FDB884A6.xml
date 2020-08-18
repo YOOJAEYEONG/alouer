@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="DEPOSITTB" directorySegmentName="seg_0" id="154B8584-2B1E-7130-09A2-B118FDB884A6">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<schemaObject>28D47C7A-84E1-92EE-5940-49AEB371C03C</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>7D8E443D-D09C-E8EF-C197-EDF2604E6176</segment>
+<tableSpace>01061DF3-A7A9-544B-4E50-8B2F41475731</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="TRANSTIME" id="03823D7A-D284-63D8-A011-2D641F222922">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<defaultValue>sysdate</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="DEPOSIT" id="4474FD6A-EF00-D453-D200-977D65736706">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="HISTORY" id="47F38C9B-03BF-3F3A-5807-E5490FA1E412">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="IDX" id="822E84F6-9468-2E5E-9FA4-02FD163D00A8">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="WITHDRAW" id="992C002A-1207-4DE0-0F1A-50363DE6AE7C">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="MEMBERID" id="B9A82B8E-9E55-E0D8-1443-D8EA89DDC4F8">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BALANCE" id="BE215200-EF9F-E4C7-A903-D78A99EA85B4">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SYS_C0014654" id="A78FAF80-A86F-824B-6EFC-3384507C98BF">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<schemaObject>28D47C7A-84E1-92EE-5940-49AEB371C03C</schemaObject>
+<segment>9F954C0D-EB3B-045F-83F2-C243ABE25B32</segment>
+<tableSpace>01061DF3-A7A9-544B-4E50-8B2F41475731</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DEPOSIT_FK" id="8E72CA61-7205-C663-0DF4-92841E75FDB7">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="DEPOSITTB_PK" id="88F803C7-6792-B348-BB3B-D4B5FD3BF631">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<segment>9F954C0D-EB3B-045F-83F2-C243ABE25B32</segment>
+<tableSpace>01061DF3-A7A9-544B-4E50-8B2F41475731</tableSpace>
+<existingIndex>A78FAF80-A86F-824B-6EFC-3384507C98BF</existingIndex>
+<indexSegment>9F954C0D-EB3B-045F-83F2-C243ABE25B32</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

@@ -1,0 +1,161 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="34E87C5E-37EB-CF48-AF49-B82311B81C1A" schemaObject="28D47C7A-84E1-92EE-5940-49AEB371C03C" name="RENTAL_TRANS">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>F46AF0A5-5882-6D7E-69D3-EE6142E51092</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDX" id="173782A4-420E-3862-2555-03FA69FBB1FB">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>02AC8DA0-2E52-1EF2-D83C-DF58C39CC79E</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CODE" id="88D5B3B1-2D2C-BD63-B829-3F848544DB4D">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>4F23B72C-E4C5-53F9-33EB-D97D80DB9549</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="645A32DA-1844-2907-FBEE-CC53118A8E59" referredColumn="053505E6-C61B-111F-481A-90EF79C04737"/>
+</associations>
+</Column>
+<Column name="MEMBERID" id="D36EE24E-3068-15F4-1432-78C4A184FBFC">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>7525C87B-6698-FE3B-919E-EC392E5FB11F</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0A7E0E87-2CE9-8D38-55B2-263BC2C94DD1" referredColumn="6F22D484-53BD-91FB-4F10-58A5C6965615"/>
+</associations>
+</Column>
+<Column name="RENTALBEGIN" id="EF07FAB0-C678-3F98-8751-BF1BB60BEE8D">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>4AE66BE7-C526-6BAE-E19F-AFF6830DE991</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<defaultValue>sysdate</defaultValue>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RENTALEND" id="EE2D3F04-B3E5-9DAB-0EDB-08530E261A03">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>E7405C7C-C7BB-E365-0037-B5EE9FC0C969</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RETURNDATE" id="1D1FB1F2-F80F-74C2-F2FB-4CF920710106">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>323BACAD-992F-7FD0-9AB4-0EEFCF0F0207</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TRANSTYPE" id="847497E0-6DF6-7514-A72C-B933BFC09D3B">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>99CEC315-6D26-8788-8BB9-1420D7C693BB</importedID>
+<constraintName>TRANSCHECK</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;렌탈가능&apos;" description=""/>
+<valueDef value="&apos;렌탈중&apos;" description=""/>
+<valueDef value="&apos;반납&apos;" description=""/>
+<valueDef value="&apos;취소&apos;" description=""/>
+</listOfValues>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TOTALAMOUNT" id="6EAD63BF-C7F7-0194-09AA-C70E1C22C574">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>8562AA8A-872D-55A2-E748-3338080D06FD</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BFB7F86C-E8ED-D5D5-AD59-F53765C9C7C9" schemaObject="28D47C7A-84E1-92EE-5940-49AEB371C03C" name="RENTAL_TRANS_PK">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>FB33B538-B279-8836-B458-5B202E3B7D30</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="173782A4-420E-3862-2555-03FA69FBB1FB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8A490FDA-6764-D7DA-62A7-EDB9025653AA" name="SYS_C0013736">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="88D5B3B1-2D2C-BD63-B829-3F848544DB4D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6E775C4E-3772-F216-4D5E-6961507875D2" name="SYS_C0013737">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D36EE24E-3068-15F4-1432-78C4A184FBFC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,136 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="154B8584-2B1E-7130-09A2-B118FDB884A6" schemaObject="28D47C7A-84E1-92EE-5940-49AEB371C03C" name="DEPOSITTB">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>A2BEB7E5-B7A0-D612-CD54-E267CCDACC13</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDX" id="822E84F6-9468-2E5E-9FA4-02FD163D00A8">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>B1C92544-FCB9-8955-ECA0-F53FAF6699D2</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMBERID" id="B9A82B8E-9E55-E0D8-1443-D8EA89DDC4F8">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>E9609C2A-2BB8-37A5-71D6-8F19E7A410CC</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A4754EDD-8474-0209-C7DF-D38D8A4AD5FE" referredColumn="6F22D484-53BD-91FB-4F10-58A5C6965615"/>
+</associations>
+</Column>
+<Column name="WITHDRAW" id="992C002A-1207-4DE0-0F1A-50363DE6AE7C">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>D4A2A237-57B7-E271-CCD7-31C419734A4B</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEPOSIT" id="4474FD6A-EF00-D453-D200-977D65736706">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>9E39ECB0-969C-B02A-E49D-A30E3864E575</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BALANCE" id="BE215200-EF9F-E4C7-A903-D78A99EA85B4">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>394588AF-3B5A-816F-BBD9-A99068F41369</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HISTORY" id="47F38C9B-03BF-3F3A-5807-E5490FA1E412">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>88045929-1249-8E09-5D7E-4D9839EE08BE</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TRANSTIME" id="03823D7A-D284-63D8-A011-2D641F222922">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>5A16B328-5AE6-7A2D-5EC4-0B3052E7D1FE</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<defaultValue>sysdate</defaultValue>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="88F803C7-6792-B348-BB3B-D4B5FD3BF631" name="DEPOSITTB_PK">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>F5B9A29F-B66F-40C3-CF07-5E6788E75D20</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="822E84F6-9468-2E5E-9FA4-02FD163D00A8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A78FAF80-A86F-824B-6EFC-3384507C98BF" schemaObject="28D47C7A-84E1-92EE-5940-49AEB371C03C" name="SYS_C0014654">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>75941BAF-3085-3A9B-010D-A26FC6E97725</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="822E84F6-9468-2E5E-9FA4-02FD163D00A8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8E72CA61-7205-C663-0DF4-92841E75FDB7" name="DEPOSIT_FK">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B9A82B8E-9E55-E0D8-1443-D8EA89DDC4F8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

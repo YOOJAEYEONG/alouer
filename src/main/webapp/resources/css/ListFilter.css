@@ -1,0 +1,176 @@
+@charset "UTF-8";
+/* 폰트 시작 */
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: normal;
+   src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2)
+      format('woff2'),
+      url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff)
+      format('woff'),
+      url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf)
+      format('opentype');
+}
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: bold;
+   src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2)
+      format('woff2'),
+      url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff)
+      format('woff'),
+      url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf)
+      format('opentype');
+}
+
+* {
+   font-family: 'Roboto', 'Noto Sans KR','Malgun Gothic', sans-serif;
+   -webkit-font-smoothing: antialiased;
+   letter-spacing: -0.5px;
+}
+p{
+   font-family: 'Roboto', 'Noto Sans KR','Malgun Gothic', sans-serif;
+   -webkit-font-smoothing: antialiased;
+   letter-spacing: -0.5px;
+}
+container-pc .ds-filter-tags {
+   float: left;
+   height: auto;
+   padding: 10px 0 10px 10px;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   max-width: 88%;
+   max-width: -webkit-calc(100% - 120px);
+   max-width: -moz-calc(100% - 120px);
+   max-width: calc(100% - 120px);
+}
+/* 폰트 끝 */
+
+/* 작품리스트 카드  시작*/
+#columns {
+   column-width: 250px;
+   column-gap: 30px;
+}
+#columns figure {
+   display: inline-block;
+   border: 1px solid rgba(0, 0, 0, 0.2);
+   margin: 0;
+   margin-bottom: 30px;
+   padding: 0px;
+}
+#columns figure img {
+   width: 100%;
+}
+#columns figure figcaption {
+   border-top: 1px solid rgba(0, 0, 0, 0.2);
+   padding: 10px;
+   margin-top: 0px;
+}
+/* 작품리스트 카드  끝*/
+
+/* 필터 시작 */
+
+#ds-filter-container-pc {
+    padding: 0px 16px 0px 16px;
+}
+#ds-filter-container-pc .ds-filter-tag-theme>label {
+    text-align: center;
+    font-size: 14px;
+    padding-top: 7px;
+}
+.ds-filter-tag-bt-checkbox+label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color: #989898;
+    border: 1px solid #dfdfdf;
+    border-radius: 2px;
+    background-color: #fff;
+    cursor: pointer;
+}
+#filterToggleLine{border-bottom: 2px solid black; display: none;}
+#filterToggleBox{
+   text-align: center;
+   padding-left: 10px;
+   margin: 0 10px;
+}
+/* 필터 끝 */
+
+.section_padding{padding: 0px;}
+.card{border-radius: 9px;overflow: hidden;}
+
+.ds-filter-status-bt-checkbox:checked + label {
+    font-weight: bold;
+}
+.ds-filter-status-bt-checkbox + label {
+    position: relative;
+    line-height: 20px;
+    padding-left: 26px;
+    cursor: pointer;
+}
+.ds-filter-status-bt-checkbox:checked + label:before {
+    border-color: #222;
+    background-color: #222;
+}
+.ds-filter-status-bt-checkbox + label:before {
+    content: '';
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    border: 1px solid #dfdfdf;
+    border-radius: 1px;
+    background-color: #fff;
+}
+.ds-filter-status-bt-checkbox:checked + label:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    background-color: transparent;
+    width: 8px;
+    height: 4px;
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+.ds-filter-status{
+   padding-top: 10px;
+}
+#ds-filter-status {
+    position: absolute;
+    
+    top: 15px;
+    right: 0px;
+    height: 22px;
+}
+.row {
+    display: -ms-flexbox;
+    display: block;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #2a2a2a;
+    font-family: 'Roboto', 'Noto Sans KR','Malgun Gothic', sans-serif;
+}

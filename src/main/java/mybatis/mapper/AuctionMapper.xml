@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="mybatis.AuctionDAOImpl">
+
+	<!-- 작품의 정보를 가져온다 -->
+	<select 
+		id="getAuctionView" 
+		parameterType="mybatis.ParameterDTO" 
+		resultType="mybatis.ArtsDTO">
+		SELECT * FROM arts WHERE code = #{code}
+	</select>
+	<!-- 작품의 경매 등록정보를 가져온다  -->
+	<select 
+		id="getAuctionInfo" 
+		parameterType="mybatis.ParameterDTO" 
+		resultType="mybatis.AuctionInfoDTO">
+		SELECT * FROM (
+	        SELECT ROWNUM R, A.* FROM (
+	                SELECT * FROM auctioninfo WHERE code = #{code}
+	        ) A
+	        ORDER BY auctionid DESC
+		)
+		where R = 1
+	</select>
+	<select 
+		id="getAuctionCodeInfo" 
+		resultType="mybatis.AuctionInfoDTO">
+		SELECT * FROM auctioninfo WHERE auctionId = #{param1}
+	</select>
+	
+	
+	<!-- 입찰하기 -->
+	<insert id="putBid" parameterType="mybatis.AuTransDTO">
+		DECLARE
+
+		BEGIN
+		    FOR idx IN 1 .. ${lot} LOOP
+		        INSERT INTO au_trans
+		            VALUES (
+		                au_trans_seq.NEXTVAL, 
+		             	${auctionId}, 
+						#{memberId}, 
+						#{code}, 
+						${bidsPrice}, 
+		                SYSTIMESTAMP
+		            );
+		    END LOOP;
+		END;
+		<!-- 오라클에서는 PL/SQL 마침 표시로 /필요한데 여기서는 에러 처리된다
+		그리고 안쪽 쿼리문에; 표시 붙이는것도 이 문장에서는 잘돌아감-->
+	</insert>
+	
+	<!-- 실시간 경매 현황 조회  -->
+	<select id="bidList" parameterType="mybatis.ParameterDTO" resultType="mybatis.AuTransDTO" >
+		SELECT TbSec.* FROM
+			(SELECT * FROM (
+				SELECT Tb.*, rownum RN 
+	            FROM (SELECT * FROM au_trans ORDER BY bidsPrice DESC) Tb 
+	            WHERE auctionid = ${auctionId } 
+	        )
+		WHERE RN BETWEEN ${start} AND ${end}
+		) TbSec
+	</select>
+	
+	<!-- 경매가 끝나고 [마이페이지]에서 낙찰현황을 조회하는 경우-->
+	<select id="getMyAuctionResult" 
+		parameterType="mybatis.ParameterDTO"
+		resultType="mybatis.AuTransDTO">
+		
+		SELECT * FROM (
+	    SELECT Tb.*, rownum rNum 
+	    FROM (SELECT * FROM au_trans Trans
+                  INNER JOIN auctioninfo AuInfo
+                  ON Trans.auctionid = AuInfo.auctionid
+              WHERE memberid = #{memberId}
+              ORDER BY auctiontime DESC) Tb 
+		     ) 
+		WHERE rnum <![CDATA[<=]]> auctiontotal
+		ORDER BY bidsprice DESC
+	</select>
+	
+	<!-- 경매가 끝나고 [해당게시물]에서 낙찰현황을 조회하는 경우-->
+	<select id="getThisAuctionResult"
+		resultType="mybatis.AuTransDTO">
+		SELECT ROWNUM rN, TbSec.* FROM (
+			SELECT * FROM (
+		    SELECT Tb.*, rownum rNum 
+		    FROM (SELECT * FROM au_trans Trans
+	                  INNER JOIN auctionInfo AuInfo
+	                  ON Trans.auctionid = AuInfo.auctionid
+	              WHERE Trans.auctionid = #{param1}
+	              ORDER BY bidsprice DESC) Tb 
+			     ) 
+			WHERE rnum <![CDATA[<=]]> auctiontotal
+			ORDER BY bidsprice DESC  
+		) TbSec
+	</select>
+	
+	<!-- 지분경매 리스트에서 각 게시물의 경매등록 정보를 가져옴 -->
+	<select id="getTotalAuctionInfo"  resultType="mybatis.AuctionInfoDTO"  >
+<!-- mybatis.AuctionInfoDTO -->
+		 SELECT * FROM (
+			 SELECT ROWNUM R, A.*, arts.title FROM 
+			 	(SELECT * FROM auctioninfo)A 
+			 		INNER JOIN arts ON A.code = arts.code
+			 WHERE arts.code = ANY
+				<foreach collection="list" item="code" index="idx" open="(" separator="," close=")" >
+					#{code}
+				</foreach>
+			 ORDER BY auctionid DESC
+		    ) B
+
+	</select>
+	
+	<!-- 신규계좌생성:충전시 기존 balance 내역이 없어 충돌함 balance 0 인 레코드 생성 -->
+	<insert id="newBalance">
+		INSERT INTO depositTb (idx, memberId, withdraw, deposit, balance, history, transtime) 
+		VALUES (depositTb_seq.NEXTVAL, #{param1}, 0, 0, 0, '신규',sysdate)
+	</insert>
+	
+	<!-- 회원의 예치금을 조회 -->
+	<select id="getBalance" resultType="int">
+		SELECT balance FROM 
+			(SELECT * FROM(
+			    (SELECT * FROM depositTb) tb
+			    ) WHERE memberid = #{param1} ) 
+		WHERE idx = (SELECT MAX(idx) FROM depositTb WHERE memberid = #{param1})
+	</select>
+	
+	<!-- 회원의 예치금 입출금 리스트 레코드 갯수를 조회 -->
+	<select id="getTotalDepositCnt" resultType="int">
+		SELECT COUNT(*) FROM depositTb WHERE memberId = #{memberId} 
+	</select>
+	
+	<!-- 회원의 예치금 입출금 리스트를 불러옴 -->
+	<select id="getBalanceHistory" parameterType="mybatis.ParameterDTO" 
+		resultType="mybatis.DepositTbDTO">
+		SELECT * FROM (
+	        SELECT ROWNUM R, T2.* FROM (
+                SELECT T1.* FROM (
+	                SELECT * FROM deposittb
+	                WHERE memberid = #{memberId}
+	                ORDER BY  transtime DESC
+                ) T1 
+	        ) T2
+		)
+		WHERE R BETWEEN ${start} AND ${end} 
+	</select>
+
+	<!-- 회원의 예치금 입출금 -->
+	<insert id="setBalance" parameterType="mybatis.DepositTbDTO" >
+		
+		INSERT INTO depositTb (idx, memberId, withdraw, deposit, balance, history, transtime) 
+			VALUES (depositTb_seq.NEXTVAL,
+				#{memberId},
+				${withdraw},
+				${deposit},
+				 (SELECT balance FROM 
+	             	(SELECT * FROM
+	             		(SELECT * FROM depositTb WHERE memberid = #{memberId} ) 
+	              	 WHERE idx = (SELECT MAX(idx) FROM depositTb WHERE memberid = #{memberId} )
+	              	)
+	             )
+			<if test="deposit == 0">
+	            	- ${withdraw}, 
+	            #{history},  
+			</if>
+			<if test="withdraw == 0">
+	             	+ ${deposit},
+	            #{history},  
+			</if>
+				sysdate)
+	</insert>
+	
+	<!-- 로그인한 사용자의 정보를 가져옴  -->
+	<select id="getMemberInfo" resultType="mybatis.MemberVO">
+		SELECT * FROM alouer_member WHERE memberid = #{param1}
+	</select>
+	
+	<!-- 종료된 경매의 낙찰결과를 가져옴 -->
+	<select id="showThisAuctionResult" resultType="mybatis.AuTransDTO" parameterType="String">
+		SELECT * FROM (
+		    SELECT ROWNUM rn, TB.* FROM 
+		        (SELECT memberid, auctionid,code,bidsprice FROM au_trans 
+		         WHERE auctionid = ${param1} ORDER BY bidsprice DESC) TB
+			) TRANS
+			    INNER JOIN auctioninfo INF 
+			    ON TRANS.auctionid = INF.auctionid
+		WHERE rn <![CDATA[<=]]> INF.auctiontotal
+	</select>
+	
+	<!-- 진행중인 경매의 낙찰가능한 최소금액을 가져옴 -->
+	<select id="getMinPrice" resultType="int">
+		SELECT NVL(bidsPrice,0) FROM (
+		    SELECT rownum rn,TB.* FROM 
+		        (SELECT memberid, auctionid,code,bidsprice FROM au_trans 
+		            WHERE auctionid = #{param1} ORDER BY bidsprice desc) TB) TRANS
+		    INNER JOIN auctionInfo INF 
+		    ON TRANS.auctionid = INF.auctionid
+		WHERE rn = INF.auctiontotal
+	</select>
+	
+	<!-- myPage > auction /////////////////////////////////////////////////-->
+	
+	<!-- 마이페이지에서 참여한 모든 지분경매의 낙찰리스트를 조회  -->
+	<select id="getTotalSuccessfulBid" parameterType="String" 
+		resultType="mybatis.AuTransDTO">
+	
+		<!--  
+		SELECT  ROWNUM roNum, ATS.title, ATS.imageurl, TRANS.*, INF.* FROM (
+		    SELECT ROWNUM rn,TB.* FROM 
+		        (SELECT * FROM au_trans 
+		            WHERE memberid = #{param1}
+		            ORDER BY bidsprice DESC) TB) TRANS
+		    INNER JOIN auctioninfo INF  ON TRANS.auctionid = INF.auctionid
+        	INNER JOIN arts ATS ON ATS.code = INF.code
+		WHERE rn <![CDATA[<=]]> inf.auctiontotal AND inf.endtime <![CDATA[<]]> SYSTIMESTAMP 
+		-->
+		SELECT D.bidsprice, D.auctionid, lot, sum, INF.code, arts.title, arts.imageurl FROM (
+		    SELECT auctionid, COUNT(*) lot, sum(bidsprice) sum, bidsprice  FROM
+		    (SELECT B.auctionid , bidsprice FROM au_trans A INNER JOIN auctioninfo B
+		    ON A.auctionid = B.auctionid
+		        WHERE memberid = #{param1} and B.isfinish=1
+		        ORDER BY bidsprice DESC)C  GROUP BY (auctionid, bidsprice)
+		)D 
+		INNER JOIN auctioninfo INF ON D.auctionid = INF.auctionid
+		INNER JOIN arts ON INF.code = arts.code order by INF.auctionid desc, INF.code desc
+	</select>
+
+
+	<!-- 마이페이지에서 현재 참여하고 있는 모든 지분경매의 리스트를 조회(진행 중인 경매만 조회됨)  -->
+	<select id="getTotalBidding" parameterType="String" resultType="mybatis.AuTransDTO">
+	
+		 SELECT  ROWNUM roNum, ATS.title, ATS.imageurl, TRANS.*, INF.* FROM (
+		    SELECT ROWNUM rn,TB.* FROM 
+		        (SELECT * FROM au_trans 
+		            WHERE memberid = #{param1}
+		            ORDER BY auctiontime DESC) TB) TRANS
+		    INNER JOIN auctioninfo INF  ON TRANS.auctionid = INF.auctionid
+        	INNER JOIN arts ATS ON ATS.code = INF.code
+		WHERE inf.endtime <![CDATA[>]]> SYSTIMESTAMP
+	</select>
+
+	<!-- admin > auction /////////////////////////////////////////////////-->
+	
+	<!-- 선택한 경매의 총 입찰 수  -->
+	<select id="getTotalCount" parameterType="mybatis.ParameterDTO" resultType="int">
+		SELECT COUNT(*) FROM ${tableName} WHERE auctionId = ${auctionId}
+	</select>
+	
+	<select id="currentAuction" parameterType="mybatis.ParameterDTO" resultType="mybatis.AuTransDTO">
+		SELECT bidsprice,  COUNT(bidsprice) as lot FROM 
+		        (SELECT * FROM au_trans WHERE auctionid = ${auctionId} )
+		GROUP BY bidsprice 
+		ORDER BY bidsprice DESC
+	</select>
+	
+	
+	
+	
+	
+	<!-- 신규 경매 등록 -->
+	<insert id="addAuction" parameterType="mybatis.AuctionInfoDTO">
+		
+		INSERT INTO auctionInfo 
+			(auctionId, code, startBids, startTime, endTime, auctionTotal)
+		VALUES(
+		 	auctioninfo_seq.NEXTVAL, 
+		 	#{code},
+		 	#{startBids}, 
+		 	to_timestamp( #{fmtStartTime}, 	'YYYYMMDDHH24MISSFF'),
+		 	to_timestamp( #{fmtEndTime},	'YYYYMMDDHH24MISSFF'),
+		 	#{auctionTotal}
+		 )
+	</insert>
+	
+	
+	<!-- 신규 경매 수정 -->
+	<update id="upDateAuction" parameterType="mybatis.AuctionInfoDTO">
+		
+		UPDATE auctionInfo  
+		SET 
+			code = #{code}, 
+			startBids 	= #{startBids}, 
+			startTime 	= to_timestamp( #{fmtStartTime},'YYYYMMDDHH24MISSFF'),
+			endTime 	= to_timestamp( #{fmtEndTime},	'YYYYMMDDHH24MISSFF'),
+			auctionTotal= #{auctionTotal}
+		WHERE auctionId = #{auctionId}
+	</update>
+	
+	
+	<update id="updateArtAuction" parameterType="mybatis.AuctionInfoDTO">
+		UPDATE arts SET status = '지분경매' WHERE code = #{code}
+	</update>
+	
+	<!-- 낙찰 되지 못한 입찰건 환불 PL/SQL의 경우 정상처리되면 -1이 반환된다 -->
+	<insert id="bidRefund" >
+		DECLARE
+		    v_totalcnt NUMBER;
+		    v_id varchar2(50);
+		    v_memberid VARCHAR2(50);
+		    v_bidsprice NUMBER;
+		    v_code VARCHAR2(50);
+		    v_auctionid NUMBER;
+		    v_title VARCHAR2(50);
+		    v_R NUMBER;
+		    v_balance NUMBER;
+		BEGIN
+		    <!-- 입찰 실패건 갯수를 조회하여 변수 초기화 -->
+		    SELECT COUNT(*) INTO v_totalcnt
+		    FROM (
+		        SELECT ROWNUM rn,TB.* FROM 
+		            (SELECT memberid, auctionid,code,bidsprice FROM au_trans 
+		                WHERE auctionid = #{param1} 
+		                ORDER BY bidsprice desc) TB) TRANS
+		        INNER JOIN auctioninfo INF 
+		        ON TRANS.auctionid = INF.auctionid 
+		    WHERE rn > inf.auctiontotal ;
+		
+		    <!-- 옥션 수량n 다음 번째 입찰은 모두 환불해야한다. 만약 
+		    	만약 옥션 수량보다 입찰 수량이 적으면 환불건 없이 모두 입찰 이므로
+		    	for문은 건너띄게 됨. -->  
+		    FOR v_index IN 1 .. v_totalcnt LOOP
+		        
+		        <!-- 입찰레코드의 id 와 입찰가를 꺼내 변수에 저장 -->
+		        SELECT R, memberid, auctionid, code, bidsprice, title 
+		                INTO v_R, v_memberId, v_auctionid, v_code, v_bidsprice, v_title
+		        FROM (
+		            SELECT ROWNUM R, memberid, INF.auctionid, INF.code, bidsprice, title 
+		                  FROM (
+		                        SELECT ROWNUM rn,TB.* FROM 
+		                            (SELECT T.memberid, auctionid, A.code, bidsprice, A.title FROM au_trans T
+		                                         INNER JOIN arts A       ON T.code = A.code
+		                                WHERE auctionid = #{param1} 
+		                                ORDER BY bidsprice DESC) TB) TRANS
+		                        INNER JOIN auctioninfo INF      ON TRANS.auctionid = INF.auctionid
+		            WHERE rn > inf.auctiontotal 
+		        ) T
+		        WHERE R = v_index;
+		        
+		        <!-- 해당 유저의 최종 잔고를 변수에 대입 -->
+		        SELECT balance    INTO v_balance
+		        FROM 
+	                (SELECT * FROM
+	                        (SELECT * FROM depositTb WHERE memberid = v_memberid ) 
+	                 WHERE idx = (SELECT MAX(idx) FROM deposittb WHERE memberid = v_memberid)
+		        );
+		   
+		        <!-- 해당 유저의 최종 balance(잔고)에 환불 처리.  -->
+		        <!-- 이때 유저가 depositTb 테이블에 레코드가 없으면 null 에러가 남 -->
+		        INSERT INTO depositTb (idx, memberId, withdraw, deposit, balance, history, transtime)     
+		            VALUES(depositTb_seq.NEXTVAL,   v_memberid,    0,    v_bidsprice,  
+		                    (SELECT NVL(balance, 0) FROM 
+		                            (SELECT * FROM
+		                                (SELECT * FROM depositTb WHERE memberid = v_memberid ) 
+		                    WHERE idx = (SELECT MAX(idx) FROM deposittb WHERE memberid = v_memberid ))) + v_bidsprice,
+		                v_title||' 작품 경매 입찰건 환불' , SYSDATE) ;
+		    END LOOP;
+		END;
+		<!-- / -->
+	</insert>
+	
+	<!-- 낙찰건들을 지분거래에 등록 , 해당경매 완료처리 , 해당작품 지분거래상태로 변경 -->
+	<insert id="addStock">
+ DECLARE 
+          v_totalcnt NUMBER;
+          v_code VARCHAR2(50);
+          v_memberid VARCHAR2(50);
+          v_auctionid NUMBER;
+          v_R NUMBER;
+          v_bidCnt number;
+          v_bidsprice number;
+          v_cnt number;
+      BEGIN
+        <!-- 경매의 총 옥션 수량을 만큼 stockinfo 에  등록하기위해 반복할 값 초기화 -->
+          SELECT auctiontotal , code
+                   INTO v_totalcnt, v_code
+          FROM auctioninfo WHERE auctionid = #{param1};
+          
+          select count(*) INTO v_bidCnt 
+          from au_trans where auctionid = #{param1};
+          
+          if v_bidCnt <![CDATA[<]]> v_totalcnt then
+          
+          	v_cnt := v_bidCnt;          	
+          else
+          	v_cnt := v_totalcnt;
+          end if;
+          	
+        if v_bidCnt > 0 then
+             FOR idx IN 1 .. v_cnt LOOP 
+                    
+                    <!-- 경매아이디가 8번인 경매물에서 경매지분 수량 안의 입찰자들만 선택하여 낙찰정보 조회 -->
+                     select R, memberid,  auctionid , bidsprice
+                       <!-- 변수 초기화시켜줌 -->
+                                INTO v_R, v_memberid,  v_auctionid , v_bidsprice
+                     FROM (
+                                SELECT rownum R,TRANS.memberid, INF.auctionid , TRANS.bidsprice
+                                FROM (
+                                        SELECT rownum rn,TB.* FROM 
+                                            (SELECT memberid, auctionid,bidsprice FROM au_trans
+                                                    WHERE auctionid =#{param1}
+                                                    ORDER BY bidsprice DESC) TB
+                                        ) TRANS
+                                        INNER JOIN auctioninfo INF 
+                                        ON TRANS.auctionid = INF.auctionid
+                                WHERE rn <![CDATA[<=]]> inf.auctiontotal
+                     )
+                     WHERE R=idx;
+                     
+                 <!-- 해당 낙찰 지분들은 지분거래( stockinfo) 테이블에 추가 -->
+                     INSERT INTO stockinfo ( stockid, code, memberid, stockprice, auctionid, datelog)
+                         VALUES (stockinfo_seq.NEXTVAL, v_code, v_memberid, v_bidsprice  , v_auctionid, sysdate);
+                     
+             END LOOP;
+          end if;
+         <!-- 지분거래 등록 후 경매 완료 처리  -->
+          UPDATE auctioninfo SET isfinish = 1 WHERE auctionid = #{param1};
+          <!-- 지분거래 등록된 작품의 상태를 변경 -->
+          UPDATE arts SET status = '렌탈준비중' WHERE code = v_code;
+      END;
+ 
+      <!-- / -->
+   </insert>
+	
+	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

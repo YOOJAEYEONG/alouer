@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+
+	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/img/**" location="/resources/img/" />
+	<resources mapping="/js/**" location="/resources/js/" />
+	<resources mapping="/sass/**" location="/resources/sass/" />
+	<resources mapping="/vendor/**" location="/resources/vendor/" />
+	<resources mapping="/fonts/**" location="/resources/fonts/" />
+	<resources mapping="/css/**" location="/resources/css/" />
+	<resources mapping="/upload/**" location="/resources/upload/" />
+		
+	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+        <beans:property name="order" value="1" /><!-- 순서를 우선으로 지정 -->
+    </beans:bean>
+     
+	<beans:bean id="tilesConfigurer"
+	    class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+	    <beans:property name="definitions">
+	        <beans:list>
+	            <beans:value>/WEB-INF/tiles/tiles.xml</beans:value>
+	        </beans:list>
+	    </beans:property>
+	</beans:bean>
+	
+	
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+		<beans:property name="order" value="2"/>
+		<beans:property name="prefix" value="/WEB-INF/views" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<context:component-scan base-package="com.official.alouer" />
+
+
+	<!--  
+	공통점 :빈의 멤버변수를 초기화 한다.
+	차이점:
+	beans:constructor-arg => 생성자를 통해 초기화한다.
+	beans:property => getter를 통해 초기화 한다.
+<<<<<<< HEAD
+	-->	
+	<!-- 네이버 메일 사용 컨텍스트 -->
+	<beans:bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+      <beans:property name="host" value="smtp.naver.com" />
+      <beans:property name="port" value="465" />
+      <beans:property name="username" value="jjeong1992" />
+      <beans:property name="password" value="1bijoup2013" />
+      <beans:property name="defaultEncoding" value="utf-8" />
+      <beans:property name="javaMailProperties">
+         <beans:props>
+            <beans:prop key="mail.debug">true</beans:prop>
+            <beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+            <beans:prop key="mail.smtps.ssl.checkserveridentity">true</beans:prop>
+            <beans:prop key="mail.smtp.auth">true</beans:prop>
+            <beans:prop key="mail.smtps.ssl.trust">*</beans:prop>
+            <beans:prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</beans:prop>
+         </beans:props>
+      </beans:property>
+   </beans:bean>	
+
+	
+
+	<!-- 오라클연결정보를 가진 dataSource빈 생성 -->
+	 <beans:bean name="dataSource"
+	 	class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+	 	<beans:property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+	 	<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+
+	 	<!-- <beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/> -->
+	 	<beans:property name="username" value="kosmo"/>
+	 	<beans:property name="password" value="1234"/>	 		
+	 </beans:bean>
+	 <!-- Mybatis 빈 생성 -->
+	 <beans:bean id="sqlSessionFactory"
+	 	class="org.mybatis.spring.SqlSessionFactoryBean">
+	 	<beans:property name="dataSource" ref="dataSource"/>
+	 	<beans:property name="mapperLocations" 
+	 		value="classpath:mybatis/mapper/*.xml"/>
+ 	</beans:bean>	
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg index="0" ref="sqlSessionFactory"/>
+	</beans:bean>	
+
+	
+		<!-- 파일업로드를 위한 빈 생성 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10000000"/><!-- 1메가바이트 : 1000000-->
+	</beans:bean>
+	<!-- 파일다운로드를 위한 빈 생성 : 조금후에.. -->
+	<beans:bean id="fileDownloadView" class="util.FileDownloadView"></beans:bean>
+	<beans:bean id="fileViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0"/>
+	</beans:bean>
+
+	
+</beans:beans>
+
+
+
+

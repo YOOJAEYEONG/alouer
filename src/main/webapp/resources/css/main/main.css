@@ -1,0 +1,325 @@
+@import url(common.css);
+
+/*section�쒖옉 泥ル쾲吏�*/
+section.Section{clear: both;}
+/* section.Section{clear: both; margin-top: 100px;} */
+section.Section .Section-in{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+section.Section .banner-rolling{
+    width: 60%;
+    float: left;
+    position: relative;
+}
+section.Section .banner-rolling .bx-wrapper{
+    border: none;
+    height: auto;
+    overflow: hidden;
+    box-shadow: none;
+    background: none;
+}
+section.Section .banner-rolling .bx-wrapper .bx-viewport{max-width: 840px; width: 100%; margin: 0 auto;}
+section.Section .banner-rolling a li{height: 260px;}
+section.Section .banner-rolling a li.banner1{background: #497cea;}
+section.Section .banner-rolling a li.banner1 h1{
+    font-size: 28px;
+    color: #ffe867;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: -1.12px;
+    padding-top: 35px;
+}
+section.Section .banner-rolling a li.banner1 h1>p{display: inline-block;}
+section.Section .banner-rolling a li.banner1 p.textp2{
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: -0.72px;
+    padding: 10px;
+}
+section.Section .banner-rolling a li.banner1>div.rental-img{width: 25%;margin: 20px auto;}
+
+/*諛곕꼫 �щ씪�대뱶 �대룞踰꾪듉 �ㅽ��쇰�寃�*/
+section.Section .banner-rolling .bx-pager{
+    text-align: right !important;
+    right: 20px !important;
+    bottom:20px;
+}
+section.Section .banner-rolling .bx-pager-item{width: 10px; margin: 0 2px;}
+section.Section .banner-rolling .bx-pager-item a{background: #d5d3d3 !important; border-radius: 0px !important;}
+section.Section .banner-rolling .bx-pager-item a.active{background: #f8a19f !important;}
+
+
+section.Section .banner-fixed{
+	overflow: unset;
+    float: right;
+    border: 1px solid #E9ECEF;
+    width: 35%;
+    height: 257px;
+}
+
+
+/*硫붿씤-怨듭��ы빆異붽�*/
+section.Section .banner-fixed>div{padding:15px; background:#FDFDFD; height:50px; border-bottom:1px solid #e9ecef;}
+section.Section .banner-fixed>div>h1{line-height:20px; padding-left:5px;font-size: 16px; color:#495057; font-weight:500; display:inline-block;}
+section.Section .banner-fixed>div p{display: inline-block; float: right; font-size:12px; color: #868E96;  font-weight: 300;}
+.op5{opacity: 0.5;}
+section.Section .banner-fixed ul{overflow: hidden; height: 207px;}
+section.Section .banner-fixed ul li{font-size:12px; color: #343a40; text-overflow: ellipsis; border-bottom: 1px solid #e9ecef; width:100%; font-weight: 400; padding: 7.9px 28px; white-space: nowrap; overflow: hidden;}
+section.Section .banner-fixed ul li:nth-child(6){border-bottom:none;}
+section.Section .banner-fixed ul li span.ing-notice{background:#0F4C81; font-size:12px; color:#fff; display:inline-block; padding:0px 4px; margin-right:5px;}
+
+/*硫붿씤-議곌컖嫄곕옒�뚯텛媛�*/
+section.Section3piece{width: 100%; background: #343a40; position: relative; overflow: hidden;}
+/* section.Section3piece:before{content: ''; display: block;  position: absolute; left: 0; top: 0;  width: 100%; height: 100%; z-index: 0; background: url(/images/fo/section3pieceimg.png)  center center; background-size: cover;  -ms-background-size: cover; -o-background-size: cover; -moz-background-size: cover;  -webkit-background-size: cover; opacity: 0.1;} */
+section.Section3piece .piecemarket{position: inherit; padding: 80px 0px; z-index: 100;}
+section.Section3piece .piecemarket .piecemarket-margin{max-width:1200px; margin: 0 auto;}
+section.Section3piece .piecemarket .piecemarket-margin .piece-title{display:inline-block; font-size: 36px; line-height:48px; color:#fff;font-weight: 900;}
+section.Section3piece .piecemarket .piecemarket-margin p.piece-title{font-size: 16px; font-weight:300; padding-left:20px;}
+section.Section3piece .piecemarket .piecemarket-margin h1.piece-title>span{padding-left:10px; font-size:26px; font-weight:600; display:inline-block;}
+
+section.Section3piece .piecemarket .piecemarket-margin ul{margin:22px; padding:20px;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1{background:#9999993b;}
+section.Section3piece .piecemarket .piecemarket-margin a{display:block;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li{float:left;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(1){width:20%; font-size:18px; color:#fff; font-weight:500; letter-spacing:-0.72px;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(1) span{margin-right: 10px; background: #f75467; font-size:14px; font-weight:400; padding:2px 10px;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(2){width:45%;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(2)>div{width:60px; height:60px; float:left; margin-right: 10px;   vertical-align: top;  display: inline-block;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(2)>div>img{width:100%; height:100%;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(2) h2{font-size:18px; color:#fff; font-weight:500;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(2) h3{ font-size:13px; color:#e9ecef; font-weight:400;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(3){width:35%; text-align: right;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(3) p{font-size: 16px; color: #f75467; font-weight: 500; }
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(3) h4{font-size: 26px; color: #fff; font-weight: 600; letter-spacing:0.8px;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(3) h4 span{font-size:20px; font-weight: 300; display:inline-block; padding-left:5px; }
+
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-text{margin-bottom: 40px;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-text li{height:40px; color: #fed26c; margin-bottom:10px;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-text li.color-fff{color:#fff;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-text li.color-fff h1{color:#fff;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-text li p{font-size: 18px; font-weight: 400; display:inline-block; width:30%; }
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-text li h1{font-size:30px; color:#ffd26c; display:inline-block; width:70%; text-align: right;}
+section.Section3piece .piecemarket .piecemarket-margin ul.piece-text li h1>span{font-weight:300; font-size:20px;padding-left: 5px;}
+
+section.Section3piece .main-exchange{border:none;padding:0px; background:#0e202fdb; height: 120px; box-shadow: 0 3px 6px 0 rgba(0,0,0,0.16);}
+section.Section3piece .main-exchange div.tickercontainer{height:120px;}
+section.Section3piece .main-exchange div.mask{height:120px;}
+section.Section3piece .main-exchange div.mask ul.newsticker{height:120px;}
+section.Section3piece .main-exchange ul li{line-height: normal; margin-right:20px; height: 120px; padding:20px;}
+section.Section3piece .main-exchange ul li div.rolling-left{float:left; width:80px; height: 80px; margin-right:15px; }
+section.Section3piece .main-exchange ul li div.rolling-left>img{width:100%; height:100%; }
+section.Section3piece .main-exchange ul li img{padding:0px !important; margin:0px !important; }
+section.Section3piece .main-exchange ul li div.rolling-right{float:right;}
+section.Section3piece .main-exchange ul li div.rolling-right h2{color:#fff; font-size:14px; letter-spacing:-0.56px; font-weight: 500;}
+section.Section3piece .main-exchange ul li div.rolling-right h3{color: #b7c7d5; font-size:12px; letter-spacing:-0.48px; font-weight: 300;}
+section.Section3piece .main-exchange ul li div.rolling-right h4{color:#fff; font-size:16px; letter-spacing:-0.64px; margin-top:20px; float:right;}
+section.Section3piece .main-exchange ul li div.rolling-right h4 span.krw{font-size:12px; font-weight: 300;padding-left:5px;}
+section.Section3piece .main-exchange ul li div.rolling-right h4 span.percent{padding-right:15px; color:#868e96;}
+section.Section3piece .main-exchange ul li div.rolling-right h4 span.redcolor{color: #f75467;}
+section.Section3piece .main-exchange ul li div.rolling-right h4 span.bluecolor{color: #4386f9;}
+
+div.notice-check{padding-top:12px;}   
+div.notice-check p{font-size:13px; color: #dee3e8; text-align:right; font-weight: 400; padding-right:40px;}
+
+span.triangle-red{display:inline-block; margin-right: 4px; width: 0px;height: 0px; border-bottom:8px solid #f75467;border-right: 5px solid transparent; border-left: 5px solid  transparent;margin-bottom: 2px;}
+span.triangle-blue{display:inline-block; margin-right: 4px; width: 0px;height: 0px; border-top:8px solid #4386f9;border-right: 5px solid transparent; border-left: 5px solid  transparent;margin-bottom: 2px;}
+button.market-direct{width:100%; max-width:290px; height: 60px; background: #b7c7d5; margin: 80px auto 0px; border:none; }
+button.market-direct a{font-size:20px; font-weight:500; color:#343a40; display:block;     font-family: 'Roboto', 'Noto Sans KR','Malgun Gothic', sans-serif;}
+
+/*�앹뾽*/
+#overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: #000;filter:alpha(opacity=70);-moz-opacity:0.7;-khtml-opacity: 0.7;opacity: 0.7;z-index: 100;display: none;}
+.popup{width: 100%;margin: -60px auto;display: none;position: fixed;z-index: 101;}
+.cnt223{max-width:500px;width:100%;margin:0 auto;border-radius: 5px;background: #fff;position: relative;z-index: 103;box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);}
+.cnt223 h1{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;border-radius: 5px 5px 0px 0px; border-bottom:1px solid #e9ecef; color:#495F77; font-size:14px; padding:20px 30px; letter-spacing:-0.72px; font-weight:500;}
+.cnt223 img{margin-bottom:10px;}
+.cnt223 img.cnt223-in-img{width:100% !important;}
+.cnt223 #cnt223slider ul.bxslider a{display:block; width:500px; height: 50px; line-height: 50px;}
+    
+.cnt223 button{border: none; width: 100%; max-width: 280px; border-radius: 30px; height: 50px; background: #0f4c81; }
+.cnt223 button a{width: auto !important; color:#fff; font-size:16px; font-weight:500; letter-spacing:-0.82px; display:block;}
+
+.cnt223 .cnt223-bottom{padding:20px 30px; border-top:1px solid #e9ecef; margin-top:10px;}
+.cnt223 .cnt223-bottom a img.close{width:20px; height:20px; margin-top:2px; float:right;}   
+.cnt223 .cnt223-bottom div.agree-cont-in{width:60%; display:inline-block;}
+.cnt223 .cnt223-bottom div.agree-cont-in label{letter-spacing: -0.52px; color:#868e96; font-size:12px; font-weight:400; }
+.cnt223 #cnt223slider .bx-wrapper{border-radius:5px;}
+
+.cnt223 #cnt223slider .bx-wrapper .bx-pager{bottom:80px !important;}
+.cnt223 #cnt223slider .bx-wrapper .bx-pager.bx-default-pager a{background:#CDD6DE !important; cursor:pointer;}
+.cnt223 #cnt223slider .bx-wrapper .bx-pager.bx-default-pager a.active{background: #495057 !important;}
+
+.cnt223 #cnt223slider .bx-wrapper .bx-next{background: url(/images/fo/section2-next.svg)no-repeat center center !important}
+.cnt223 #cnt223slider .bx-wrapper .bx-prev{background: url(/images/fo/section2-prev.svg)no-repeat center center !important}
+.cnt223 #cnt223slider .bx-wrapper .bx-controls-direction a{top:55% !important; width:18px !important; }
+.cnt223 #cnt223slider .bx-wrapper .bx-controls-direction{display:none;}
+
+.cnt223 #cnt223slider .bx-wrapper:hover .bx-controls-direction{display:block;}
+.cnt223 #cnt223slider .bx-wrapper .bx-viewport{height: auto !important;}
+
+
+/*�꾩쟻�섏튂*/
+section.numerical{position: relative;}
+#particles {width: 100%;height: 480px;background: #F8F9FA;overflow: hidden;}
+canvas.pg-canvas{opacity:0.2 !important;}
+#intro {position: absolute;left: 0;top: 0px;heigth: 100%; margin: 0px !important;width: 100%;text-align: center; padding: 80px 0px;}
+#intro div.intro-in{width:100%; max-width:1200px; margin: 0 auto; }
+#intro div.intro-in h1{height: 40px; font-size:32px;letter-spacing:-0.72px;color:#343a40; font-weight:400;}
+#intro div.intro-in h1>span{font-size:34px;color: #F8C519; font-weight: 600;}
+#intro div.intro-in h2{letter-spacing: -0.72px;font-size:32px; color:#0F4C81;}
+#intro div.intro-in p{font-size:14px; font-weight:400; color: #606265; letter-spacing:-0.62px; padding-bottom: 37px;}
+#intro div.intro-in ul{clear:both;}
+#intro div.intro-in ul li{/* width:25%; */width:33.333333%; float:left;}
+#intro div.intro-in ul li span.numer-top{display: inline-block;font-size:16px; color:#495057; font-weight:400; margin-bottom:5px;}
+#intro div.intro-in ul li p{font-size: 26px; color:#343a40; font-weight: 600;}
+#intro div.intro-in ul li p span.numer-bottom{font-weight:400; font-size: 18px;}
+#intro div.intro-in ul li span.tooltip{position: relative;display: inline-block;color: #4386F9;font-size: 14px;}
+#intro div.intro-in ul li span.tooltip .tooltip-text { position: absolute;left: 100%; bottom: 100%; padding: 10px;width: 200px; background: #fff; border: 1px solid #e9ecef; border-radius: 3px;-webkit-box-shadow: 0 3px 9px rgba(52, 58, 64, 0.06);box-shadow: 0 3px 9px rgba(52, 58, 64, 0.06);color: #868e96;font-size: 12px; font-weight: 300;z-index: 10;}
+
+
+
+
+/*�묓뭹蹂꾩냼�좎옄�꾪솴*/
+section.ownershipMain:before{background: url(/images/fo/ownershipMain.png) no-repeat center center;    background-size: cover;}
+section.ownership-page{margin: 60px auto 0px;}
+section.ownership-page .product-search input{background:#fff;}
+section.ownership-page .fordesign{background-size: 10px 9px !important; background: url(/images/fo/down.png) 150px center no-repeat #fff;}
+
+section.ownership-page .ownershipList{width:100%; }
+section.ownership-page .ownership-box{overflow: hidden; margin-bottom:15px; box-shadow: 0 3px 9px rgba(0,0,0,0.06); width:100%; height: 100px; background:#fff; border:1px solid #e9ecef; }
+section.ownership-page .ownership-box div{ float:left; }
+section.ownership-page .ownership-box ul{float:left; padding: 20px; vertical-align: top; width: calc(50% - 100px); height:100px; }
+section.ownership-page .ownership-box ul.border-right{border-right:1px solid #e9ecef;}
+section.ownership-page .ownership-box .ownership-box-img{overflow: hidden; vertical-align: top; width:100px; height:100px;}
+section.ownership-page .ownership-box .ownership-box-img>img{width:100%;}
+
+section.ownership-page .ownership-box ul li.left-70p{display: inline-block;width:65%;float:left;}
+section.ownership-page .ownership-box ul li.right-30p{width: 35%;display: inline-block;text-align: right;}
+
+section.ownership-page .ownership-box .ownership-btn{width: 100px; height: 100px;float: right; background: #0F4C81;}
+section.ownership-page .ownership-box .ownership-btn a{letter-spacing: -0.56px; padding-top: 30px; font-weight: bold; display:block; width:100px; height:100px; color:#fff; text-align:center; font-size:14px; }
+
+section.ownership-page .ownership-box ul li h1{font-size: 16px; font-weight: 500; letter-spacing: -0.64px;color: #343a40; padding-top: 9px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+section.ownership-page .ownership-box ul li h2{font-size: 14px; font-weight: normal; letter-spacing: -0.56px;  color: #868e96; padding-top: 2px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+section.ownership-page .ownership-box ul li h3{font-size: 14px; font-weight: 500;  letter-spacing: -0.56px; padding-top: 8px;}
+section.ownership-page .ownership-box ul li h4{font-size: 13px;font-weight: normal;letter-spacing: -0.52px; color: #899199;padding-top: 3px;}
+section.ownership-page .ownership-box ul li h4 span{font-size: 16px;font-weight: 500;letter-spacing: -0.64px; color: #4386f9; padding-right:3px;}
+section.ownership-page .ownership-box ul li h5{font-size: 16px; font-weight: 500;letter-spacing: -0.64px;color: #343a40; line-height: 60px;}
+section.ownership-page .ownership-box ul li h5 span{display:inline-block; background:#f75467; border-radius: 50%; width:8px; height:8px; margin-right: 5px; }
+section.ownership-page .ownership-box ul li h5 span.blue{background: #4386F9;}
+
+
+/*遺�遺꾨�由щ뒗->�뚮툝由�*/
+@media screen and (min-width:790px) and (max-width:1200px){
+	section.Section .banner-fixed{float: none !important; width:70% !important;}
+	/*硫붿씤-議곌컖嫄곕옒�뚯텛媛�*/
+	section.Section3piece .piecemarket .piecemarket-margin .piece-title{font-size: 30px; line-height:42px; padding-left:20px;}
+	section.Section3piece .piecemarket .piecemarket-margin p.piece-title{font-size: 14px; }
+	
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(1){font-size:16px; width:25%; }
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(1) span{font-size:12px; font-weight:400; padding:2px 5px;}
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(2){width:45%;}
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(2) h2{font-size:16px;}
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(3){width:30%;}
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(3) p{font-size: 16px;}
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(3) h4{font-size: 22px; }
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(3) h4 span{font-size:18px; }
+	
+	/*�꾩쟻�섏튂*/
+	#intro div.intro-in ul li span.numer-top{font-size:15px;}
+	#intro div.intro-in ul li p{font-size: 21px; letter-spacing:-1px; }
+	#intro div.intro-in ul li p span.numer-bottom{font-weight:400; font-size: 16px;}
+	
+	/*�묓뭹蹂꾩냼�좎옄�꾪솴*/
+	section.ownership-page .ownership-box ul li h4 span{font-size:14px;}
+	section.ownership-page .ownership-box ul li h2{font-size:13px;}
+		
+}
+
+/* 紐⑤컮�� */
+@media(max-width:789px) {
+	section.Section .banner-fixed{text-align: left; width:100% !important;} 
+    section.Section .banner-fixed ul li{padding:8px;white-space: nowrap;text-overflow: ellipsis;}
+    section.Section .banner-fixed-box{max-width:700px !important;}
+    
+    /*硫붿씤-議곌컖嫄곕옒�뚯텛媛�*/
+    section.Section3piece .piecemarket{ padding: 40px 0px;}
+	section.Section3piece .piecemarket .piecemarket-margin .piece-title{font-size: 26px;  padding-left:10px; line-height:38px;}
+	section.Section3piece .piecemarket .piecemarket-margin p.piece-title{font-size: 12px; width:100%; padding-left:0px; padding-right:20px; text-align:right; }
+	section.Section3piece .piecemarket .piecemarket-margin h1.piece-title>span{padding-left:5px; font-size:14px; font-weight:500;}
+	
+	section.Section3piece .piecemarket .piecemarket-margin ul{margin:12px; padding:10px;}
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(1){font-size:16px; width:100%; margin-bottom:10px; }
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(1) span{font-size:12px; font-weight:400; padding:2px 5px;}
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(2){width:100%;}
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(2) h2{font-size:14px;}
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(3){width:100%;}
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(3) p{font-size: 16px;}
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(3) h4{font-size: 20px; }
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-top1 li:nth-child(3) h4 span{font-size:16px; }
+	
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-text{margin-bottom: 20px;}
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-text li{height:30px; color: #fed26c; margin-bottom:5px;}
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-text li p{font-size: 12px; width:40%; }
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-text li h1{font-size:16px; width:60%; }
+	section.Section3piece .piecemarket .piecemarket-margin ul.piece-text li h1>span{font-size:14px;padding-left: 2px;}
+	
+	div.notice-check p{font-size:12px;padding-right:10px;}
+	
+	button.market-direct{max-width:200px; height: 45px; margin: 40px auto 0px;}
+	button.market-direct a{font-size:14px; line-height: 45px; height: 45px;}
+	
+	/*�앹뾽*/
+	.popup{padding:10px; margin: -40px auto;}
+	.cnt223 h1{padding: 10px 20px;font-size: 12px;}
+	.cnt223 button{height:45px; max-width:220px;}
+	.cnt223 button a{font-size:14px;}
+	.cnt223 #cnt223slider ul.bxslider a{height: 45px; line-height: 45px;}
+	.cnt223 .cnt223-bottom{padding:10px 20px;}
+	.cnt223 .cnt223- bottom a img.close{width:18px; height:18px; margin-top:4px;}
+	.cnt223 #cnt223slider .bx-wrapper .bx-controls-direction a{width:12px !important; }
+	
+	
+	/*�꾩쟻�섏튂*/
+	#particles {/* height: 500px; */ height:430px;}
+	#intro{padding: 50px 0px;}
+	#intro div.intro-in h1{height: 35px; font-size:26px;}
+	#intro div.intro-in h1>span{font-size:28px;color: #F8C519; font-weight: 600;}
+	#intro div.intro-in h2{font-size:26px;}
+	#intro div.intro-in p{font-size:12px;  padding-bottom: 30px;}
+	#intro div.intro-in ul{padding:3px;}
+	#intro div.intro-in ul li{width:50%; height: 80px;}
+	#intro div.intro-in ul li span.numer-top{letter-spacing: -0.52px; font-size:14px; margin-bottom:5px;}
+	#intro div.intro-in ul li p{font-size: 17px; letter-spacing:-1px; }
+	#intro div.intro-in ul li p span.numer-bottom{font-weight:400; font-size: 14px;}
+	#intro div.intro-in ul li span.tooltip{font-size: 12px;}
+	#intro div.intro-in ul li span.tooltip .tooltip-text {left:-100px; padding: 8px;width: 130px;}
+	
+	
+	/*�묓뭹蹂꾩냼�좎옄�꾪솴*/
+	section.ownership-page .ownership-box{height:190px; max-width: 450px; margin: 0 auto 15px;}
+	section.ownership-page .ownership-box ul.border-right{width: calc(100% - 100px) !important; border-bottom:1px solid #e9ecef;}	
+	section.ownership-page .ownership-box ul li.left-70p{width:100%;}
+	section.ownership-page .ownership-box ul{padding:10px; width:100%;}
+	section.ownership-page .ownership-box ul.ulM{height: 48px;}
+	section.ownership-page .ownership-box ul li h1{font-size:15px;}
+	section.ownership-page .ownership-box ul li h3{display:none;}
+	section.ownership-page .ownership-box ul li h2{font-size:12px; padding: 0px;}
+	section.ownership-page .ownership-box ul li h2.day{width:70%; display:inline-block;}
+	section.ownership-page .ownership-box ul li h5{font-size: 14px;line-height:0px; width:70%; display:inline-block;}
+	section.ownership-page .ownership-box ul li.right-30p{width:100%;}
+	section.ownership-page .ownership-box ul li h4{padding-top: 10px; font-size:12px;}
+	section.ownership-page .ownership-box ul li h4 span{font-size:15px;}
+	section.ownership-page .ownership-box ul li.left-70pM{width:70%; float:right; text-align:right;}
+	section.ownership-page .ownership-box ul li.left-70pM h2.day{width:100%;padding-top:4px;}
+	section.ownership-page .ownership-box ul li.right-30pM{width:30%; padding: 5px 0px 0px 10px; text-align:left;}
+	section.ownership-page .ownership-box ul li.right-30pM h5{width:100%;}
+	
+	section.ownership-page .ownership-box .ownership-btn{width:100%; height:40px;}
+	section.ownership-page .ownership-box .ownership-btn a{font-weight: 500; width: 100%;height: 40px;font-size:12px; padding-top: 0px; line-height: 40px;}
+	section.ownership-page .ownership-box .ownership-btn a br{display:none; }
+}
+
+

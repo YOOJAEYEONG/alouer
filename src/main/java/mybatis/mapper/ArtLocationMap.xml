@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mybatis.ArtMapImpl">
+
+   <select id="searchRadius" resultType="mybatis.ArtistDTO">
+   
+   select * from
+   (SELECT
+         title, imageUrl, code, lat, lng, 
+         trunc(to_number(DISTANCE_WGS84(#{param2}, #{param3}, lat, lng)), 5) AS disKM   
+      
+      FROM ARTS
+      
+      WHERE
+         trunc(to_number(DISTANCE_WGS84(#{param2}, #{param3}, lat, lng)), 5)<![CDATA[<=]]>#{param1}
+            
+      ORDER BY trunc(to_number(DISTANCE_WGS84(#{param2}, #{param3}, 
+         lat, lng)), 5) ASC)
+   
+   
+   
+   
+   
+   </select>
+
+</mapper>

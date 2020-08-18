@@ -1,0 +1,24 @@
+/*메인페이지*/
+h3 {color: red;}
+header.masthead {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 4.5rem);
+ 
+}
+body { background:  url("https://wallpapercave.com/wp/wp5186957.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;}
+footer {background-color: black;}
+
+
+/*드롭다운 메뉴의 색상*/
+.dropdown-menu {
+  background-color: #a9eff2;
+}
+
+/*경매*/
+
+
+/*쇼핑몰*/

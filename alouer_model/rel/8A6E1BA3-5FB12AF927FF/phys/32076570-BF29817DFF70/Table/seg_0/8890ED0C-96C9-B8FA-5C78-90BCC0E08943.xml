@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="ALOUER_BOARD" directorySegmentName="seg_0" id="8890ED0C-96C9-B8FA-5C78-90BCC0E08943">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<schemaObject>28D47C7A-84E1-92EE-5940-49AEB371C03C</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>7D8E443D-D09C-E8EF-C197-EDF2604E6176</segment>
+<tableSpace>01061DF3-A7A9-544B-4E50-8B2F41475731</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="HITS" id="00AADC9C-CE9F-B2EC-284E-25DE68F35A75">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="IDX" id="101F350B-BDD1-9CF5-6CD2-703D102630A6">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BNAME" id="18BC84BA-6DAD-432F-1809-FC9637C0D4D6">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="POSTDATE" id="1AF09CB5-624E-23C2-029F-E4D838CF8CA0">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<defaultValue>sysdate</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="TITLE" id="1FCFD5A3-151E-B16A-93F5-270FB47667CC">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REPLYDATE" id="2505E874-F513-76F1-57D2-58141ED6F943">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<defaultValue>sysdate</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="CONTENTS" id="6C5EB7CA-0E88-D11F-4440-DE24BB320BBF">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MEMBERID" id="AD94EF7C-2B4C-36E6-7CA0-FEC097512549">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REPLY" id="C59623D2-9C6A-C415-FE27-F42B70C4F4F3">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REPLYOX" id="F261EA4C-4844-BC1F-D805-93D63AFFE3D1">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SYS_C0012217" id="0C8AFDB4-C40A-0CBE-F65B-6F5639C27DF8">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<schemaObject>28D47C7A-84E1-92EE-5940-49AEB371C03C</schemaObject>
+<segment>9F954C0D-EB3B-045F-83F2-C243ABE25B32</segment>
+<tableSpace>01061DF3-A7A9-544B-4E50-8B2F41475731</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="ALOUER_BOARD_PK" id="25EFFDBE-94FB-7EB2-72D6-691F248DF287">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<segment>9F954C0D-EB3B-045F-83F2-C243ABE25B32</segment>
+<tableSpace>01061DF3-A7A9-544B-4E50-8B2F41475731</tableSpace>
+<existingIndex>0C8AFDB4-C40A-0CBE-F65B-6F5639C27DF8</existingIndex>
+<indexSegment>9F954C0D-EB3B-045F-83F2-C243ABE25B32</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

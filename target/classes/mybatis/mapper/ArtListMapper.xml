@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<!-- DAO의 역할을 대신한다 속성 namespace : 해당 Mapper파일을 호출하기 위해 정의한 인터페이스(서비스객체)의 
+	패키지를 포함한 풀경로를 기술한다. id : 실제 호출되는 함수명과 동일한 이름으로 기술한다. 
+	resultType : 쿼리 실행후 반환되는 값의 타입을 명시한다. 
+	parameterType : 쿼리문에서 사용할 파라미터를 저장한 객체의 타입을 명시한다.
+	(주요 DTO, VO객체) 
+-->
+<!-- Mybatis 쿼리 성공시 반환값 select : select문에 해당하는 결과를 반환한다. 아래와 같이 select결과가 
+	MyBoardDTO타입이라면 패키지명을 포함한 클래스의 경로를 resultType에 기술한다. 만약 여러개의 레코드가 반환되면 List계열의 
+	컬렉션에 저장되어 반환된다. insert : 입력성공시 1, 실패시 0을 반환한다. 만약 insert가 여러번 되더라도 성공시에는 
+	1을 반환하게된다. update/delete : 수정/삭제에 성공한 행의 갯수를 반환한다. 조건에 따라 여러개의 레코드가 적용될 수 
+	있으므로 0,1이 아닌 더 큰값이 반환될 수도 있다. 실패의 경우 0이 반환된다. -->
+<!-- 
+	${sample} 과 #{sample} 의 차이점 
+	쿼리문 작성시 싱글쿼테이션을 자동으로 붙여준다
+		select * from dual where ${sample} => 	select * from dual where sample
+		select * from dual where #{sample} => 	select * from dual where 'sample'
+-->
+
+<mapper namespace="mybatis.ArtDAOImpl">
+
+<!--방명록 리스트 게시물 갯수 카운트 -->
+	<!--검색어처리 : 검색어가 있는경우와 없는 경우를 구분하여 동적쿼리로
+	처리하고 싶을때 아래와 같이 if문을 사용한다. 사용법은 JSTL과 동일하다.
+	< if test='조건' >
+	-->
+	
+	<select id="getTotalCount" resultType="int"
+		parameterType="mybatis.ParameterDTO">
+		SELECT count(*) FROM (
+			SELECT * FROM
+			<choose>
+
+				<when test="!page.contains('쇼룸')">
+					(SELECT * FROM arts WHERE status like '%'||#{page}||'%')
+				</when> 
+				
+				<!-- 상태필터 체크 + 낮은가격순 해제 -->
+				<when test="fltStatus != null and !fltStatus.equals('') and 
+					(fltOrderByPrice == null or fltOrderByPrice.equals(''))">
+					(SELECT * FROM arts WHERE status = #{fltStatus})
+				</when>
+				<!-- 상태필터 해제 + 낮은가격순 체크 -->
+				<when test="(fltStatus == null or fltStatus.equals('')) and 
+					(fltOrderByPrice != null and fltOrderByPrice.equals('fltOrderByPrice'))">
+					(SELECT * FROM arts ORDER BY rentalprice ASC)
+				</when>
+				<!-- 상태필터 체크 + 낮은가격순 체크 -->
+				<when test="(fltStatus != null and !fltStatus.equals('')) and 
+					(fltOrderByPrice != null and fltOrderByPrice.equals('fltOrderByPrice'))">
+					(SELECT * FROM arts WHERE status = #{fltStatus} ORDER BY rentalprice ASC )
+				</when>
+				<!-- 페이지별 조회 조건 추가 -->
+				
+				<otherwise>arts</otherwise>
+			</choose>
+			<if test="
+					(searchTxt!=null and !searchTxt.equals('')) or
+					(fltTheme!=null and !fltTheme.equals(''))	or
+					(fltColor!=null and !fltColor.equals(''))	or
+					(fltSize!=null and !fltSize.equals(''))		or
+					(fltPrice!=null and !fltPrice.equals(''))	or
+					(fltShape!=null and !fltShape.equals(''))
+					"  >
+				WHERE 1=1 
+			</if>
+			
+			<if test="searchTxt != null and !searchTxt.equals('')">
+				INTERSECT
+				SELECT * FROM arts WHERE (code||title||name) LIKE '%'||#{searchTxt}||'%'
+			</if>
+			<if test="fltTheme != null and !fltTheme.equals('')" >
+				INTERSECT
+				SELECT * FROM arts WHERE theme IN( ${fltTheme} )	
+			</if>
+			<if test="fltColor != null and !fltColor.equals('')" >
+				INTERSECT
+				SELECT * FROM arts WHERE color IN( ${fltColor} )	
+			</if>
+			<if test="fltSize != null and !fltSize.equals('')" >
+				INTERSECT
+				SELECT * FROM arts WHERE 1=0 ${fltSize}	
+			</if>
+			<if test="fltPrice != null and !fltPrice.equals('')" >
+				INTERSECT
+				SELECT * FROM arts WHERE 1=0 ${fltPrice} 	
+			</if>
+			<if test="fltShape != null and !fltShape.equals('')" >
+				INTERSECT
+				SELECT * FROM arts WHERE 1=0 ${fltShape} 	
+			</if>
+		)
+	</select> 
+	<!-- <select id="getTotalCount" resultType="int"
+		parameterType="mybatis.ParameterDTO">
+		SELECT COUNT(*) FROM 
+		<choose>
+			<when test="!page.contains('쇼룸')">
+				(SELECT * FROM arts WHERE status like '%'||#{page}||'%')
+			</when>
+			<when test="fltStatus != null and !fltStatus.equals('')">
+				(SELECT * FROM arts WHERE status = #{fltStatus} )
+			</when>
+			<otherwise>arts</otherwise>
+		</choose>
+		<if test="
+				(searchTxt!=null and !searchTxt.equals('')) or
+				(fltTheme!=null and !fltTheme.equals(''))	or
+				(fltColor!=null and !fltColor.equals(''))	or
+				(fltSize!=null and !fltSize.equals(''))		or
+				(fltPrice!=null and !fltPrice.equals(''))	or
+				(fltShape!=null and !fltShape.equals('')) ">
+			WHERE 1=1</if>
+		
+		<if test="searchTxt != null and !searchTxt.equals('')">
+			INTERSECT
+			SELECT COUNT(*) FROM arts WHERE #{searchField} LIKE '%'||#{searchTxt}||'%'</if>
+		<if test="fltTheme != null and !fltTheme.equals('')" >
+			INTERSECT
+			SELECT COUNT(*) FROM arts WHERE theme IN( ${fltTheme} )	</if>
+		<if test="fltColor != null and !fltColor.equals('')" >
+			INTERSECT
+			SELECT COUNT(*) FROM arts WHERE color IN( ${fltColor} )	</if>
+		<if test="fltSize != null and !fltSize.equals('')" >
+			INTERSECT
+			SELECT COUNT(*) FROM arts WHERE 1=0 ${fltSize}	</if>
+		<if test="fltPrice != null and !fltPrice.equals('')" >
+			INTERSECT
+			SELECT COUNT(*) FROM arts WHERE 1=0 ${fltPrice} 	</if>
+		<if test="fltShape != null and !fltShape.equals('')" >
+			INTERSECT
+			SELECT COUNT(*) FROM arts WHERE 1=0 ${fltShape} 	</if>
+	</select> -->
+
+
+<!-- 리스트 : start와 end 에 해당하는 게시물 가져오기 -->
+	<select id="listPage" resultType="mybatis.ArtsDTO"
+		parameterType="mybatis.ParameterDTO" >
+		SELECT * FROM (
+			SELECT Tb.*, rownum rNum FROM (
+				SELECT * FROM
+					<choose>
+						<when test="!page.contains('쇼룸')">
+							(SELECT * FROM arts WHERE status like '%'||#{page}||'%' ORDER BY a_idx DESC)
+						</when>
+
+						
+						<!-- 상태필터 체크 + 낮은가격순 해제 -->
+						<when test="fltStatus != null and !fltStatus.equals('') and 
+							(fltOrderByPrice == null or fltOrderByPrice.equals(''))">
+							(SELECT * FROM arts WHERE status = #{fltStatus})
+						</when>
+						<!-- 상태필터 해제 + 낮은가격순 체크 -->
+						<when test="(fltStatus == null or fltStatus.equals('')) and 
+							(fltOrderByPrice != null and fltOrderByPrice.equals('fltOrderByPrice'))">
+							(SELECT * FROM arts ORDER BY rentalprice ASC)
+						</when>
+						<!-- 상태필터 체크 + 낮은가격순 체크 -->
+						<when test="(fltStatus != null and !fltStatus.equals('')) and 
+							(fltOrderByPrice != null and fltOrderByPrice.equals('fltOrderByPrice'))">
+							(SELECT * FROM arts WHERE status = #{fltStatus} ORDER BY rentalprice ASC )
+						</when>
+						<!-- 페이지별 조회 조건 추가 -->
+						
+						<otherwise>arts</otherwise>
+					</choose>
+				<if test="
+						(searchTxt!=null and !searchTxt.equals('')) or
+						(fltTheme!=null and !fltTheme.equals(''))	or
+						(fltColor!=null and !fltColor.equals(''))	or
+						(fltSize!=null and !fltSize.equals(''))		or
+						(fltPrice!=null and !fltPrice.equals(''))	or
+						(fltShape!=null and !fltShape.equals(''))
+						"  >
+					WHERE 1=1 
+				</if>
+				
+				<if test="searchTxt != null and !searchTxt.equals('')">
+					INTERSECT
+					SELECT * FROM arts WHERE (code||title||name) LIKE '%'||#{searchTxt}||'%'
+				</if>
+				<if test="fltTheme != null and !fltTheme.equals('')" >
+					INTERSECT
+					SELECT * FROM arts WHERE theme IN( ${fltTheme} )	
+				</if>
+				<if test="fltColor != null and !fltColor.equals('')" >
+					INTERSECT
+					SELECT * FROM arts WHERE color IN( ${fltColor} )	
+				</if>
+				<if test="fltSize != null and !fltSize.equals('')" >
+					INTERSECT
+					SELECT * FROM arts WHERE 1=0 ${fltSize}	
+				</if>
+				<if test="fltPrice != null and !fltPrice.equals('')" >
+					INTERSECT
+					SELECT * FROM arts WHERE 1=0 ${fltPrice} 	
+				</if>
+				<if test="fltShape != null and !fltShape.equals('')" >
+					INTERSECT
+					SELECT * FROM arts WHERE 1=0 ${fltShape} 	
+				</if>
+			) Tb ORDER BY a_idx DESC
+		)
+		WHERE rNum BETWEEN ${start} AND ${end}
+	</select>
+				
+	<!-- 
+	<select id="listPage" resultType="mybatis.ArtsDTO"
+		parameterType="mybatis.ParameterDTO" >
+		SELECT * FROM (
+			SELECT Tb.*, rownum rNum FROM (
+				SELECT * FROM
+					<choose>
+					
+						<when test="!page.contains('쇼룸')">
+							(SELECT * FROM arts WHERE status like '%'||#{page}||'%')
+						</when>
+						
+						상태필터 체크 + 낮은가격순 해제
+						<when test="fltStatus != null and !fltStatus.equals('') and 
+							(fltOrderByPrice == null or fltOrderByPrice.equals(''))">
+							(SELECT * FROM arts WHERE status = #{fltStatus})
+						</when>
+						상태필터 해제 + 낮은가격순 체크
+						<when test="(fltStatus == null or fltStatus.equals('')) and 
+							(fltOrderByPrice != null and fltOrderByPrice.equals('fltOrderByPrice'))">
+							(SELECT * FROM arts ORDER BY rentalprice ASC)
+						</when>
+						상태필터 체크 + 낮은가격순 체크
+						<when test="(fltStatus != null and !fltStatus.equals('')) and 
+							(fltOrderByPrice != null and fltOrderByPrice.equals('fltOrderByPrice'))">
+							(SELECT * FROM arts WHERE status = #{fltStatus} ORDER BY rentalprice ASC )
+						</when>
+						페이지별 조회 조건 추가
+						
+						<otherwise>arts</otherwise>
+					</choose>
+				<if test="
+						(searchTxt!=null and !searchTxt.equals('')) or
+						(fltTheme!=null and !fltTheme.equals(''))	or
+						(fltColor!=null and !fltColor.equals(''))	or
+						(fltSize!=null and !fltSize.equals(''))		or
+						(fltPrice!=null and !fltPrice.equals(''))	or
+						(fltShape!=null and !fltShape.equals(''))
+						"  >
+					WHERE 1=0</if>
+				
+				<if test="searchTxt != null and !searchTxt.equals('')">
+					OR #{searchField} LIKE '%'||#{searchTxt}||'%'</if>
+				<if test="fltTheme != null and !fltTheme.equals('')" >
+					OR theme IN( ${fltTheme} )	</if>
+				<if test="fltColor != null and !fltColor.equals('')" >
+					OR color IN( ${fltColor} )	</if>
+				<if test="fltSize != null and !fltSize.equals('')" >
+					${fltSize}	</if>
+				<if test="fltPrice != null and !fltPrice.equals('')" >
+					${fltPrice} 	</if>
+				<if test="fltShape != null and !fltShape.equals('')" >
+					${fltShape} 	</if>
+			) Tb
+		)
+		WHERE rNum BETWEEN ${start} AND ${end}
+		
+	</select>
+	 -->
+	
+	
+	
+	
+	<!-- ORDER BY code DESC -->
+	<!-- ORDER BY rentalprice ASC -->
+	
+	<!--status 컬럼을 추가하기위해 생성함 : 렌탈가능/렌탈중-->
+	<update id="setStatus">
+		UPDATE arts a
+   		SET a.status = #{0}
+                  
+ 		WHERE ROWID IN (SELECT rid
+                   FROM (SELECT ROWID rid
+                              , ROW_NUMBER() OVER(ORDER BY code) rn
+                           FROM arts
+                         )
+                  WHERE rn = round(DBMS_RANDOM.VALUE(1,1500))
+                 )
+	
+	</update>
+	
+	
+	
+	<select id="viewinfo" resultType="mybatis.ArtsDTO" parameterType="mybatis.ParameterDTO" >
+		SELECT * FROM arts WHERE code=#{code}
+	</select>	
+	
+	
+	<!--
+		작가의 학력 정보 가져오기
+	-->
+	<select id="eduinfo" resultType="String" parameterType="mybatis.ParameterDTO">
+		
+		select edu from alouer_member
+		where memberid =(select memberid from arts where code = #{code})
+			
+	</select>
+	
+	
+	<!-- 추천작품 가져오기 보고있는 작품의 테마와 컬러가 같은 속성을 갖는 작품들을 가져옴 -->
+	<select id="recommList" resultType="mybatis.ArtsDTO"
+		parameterType="mybatis.ParameterDTO" >
+		SELECT * FROM (
+			SELECT Tb.*, rownum rNum FROM (
+				SELECT * FROM arts WHERE 1=0
+					OR theme = ANY( #{fltTheme} )
+					OR color = ANY( #{fltColor} )
+			) Tb
+		)
+		WHERE rNum BETWEEN 1 AND 24
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

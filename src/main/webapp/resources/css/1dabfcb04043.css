@@ -1,0 +1,102 @@
+.artworkDetail-admin {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 14px;
+	padding: 10px 20px;
+	background-color: #ffc;
+	position: relative;
+	margin-bottom: 40px
+}
+
+.artworkDetail-admin-folder {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	text-align: center;
+	cursor: pointer;
+	border-bottom: 15px solid #fbb;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent
+}
+
+.artworkDetail-admin.folded {
+	max-height: 0;
+	padding: 0;
+	border-bottom: 1px solid #fff;
+	margin-bottom: 40px
+}
+
+.artworkDetail-admin.folded .artworkDetail-admin-folder {
+	border-top: 15px solid #fbb;
+	border-bottom: none
+}
+
+.artworkDetail-admin.folded .artworkDetail-admin-p, .artworkDetail-admin.folded .artworkDetail-admin-p-wrapper,
+	.artworkDetail-admin.folded .artworkDetail-admin-functions {
+	display: none
+}
+
+.artworkDetail-admin-p {
+	margin: 1.2em 0
+}
+
+.artworkDetail-admin-p-wrapper {
+	padding: 1px 12px;
+	border-radius: 5px;
+	background-color: #ecec7e87;
+	margin: 10px 0
+}
+
+.artworkDetail-admin-link {
+	text-decoration: underline;
+	font-weight: bold
+}
+
+.artworkDetail-admin-link.blue {
+	color: blue
+}
+
+.artworkDetail-admin-label {
+	font-weight: bold
+}
+
+.artworkDetail-admin-functions {
+	margin-bottom: 10px;
+	text-align: right;
+	line-height: 40px
+}
+
+.artworkDetail-admin-function {
+	display: inline-block;
+	height: 34px;
+	padding: 0 14px;
+	border-radius: 3px;
+	border: solid 1px #dfdfdf;
+	line-height: 34px;
+	background-color: #fff;
+	font-size: 12px;
+	margin-left: 10px
+}
+
+.artworkDetail-codeCopyBtn {
+	height: 36px;
+	margin-bottom: 2px
+}
+
+#show_more_info {
+	display: inline-block;
+	height: 20px;
+	font-size: 14px;
+	font-weight: bold;
+	color: darkgray;
+	margin-left: 10px;
+	cursor: pointer
+}
+
+.more_info {
+	display: none
+}
+
+#footer {
+	display: none
+}

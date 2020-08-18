@@ -1,0 +1,1244 @@
+@charset "utf-8";
+
+#myModify {
+   margin: 0 auto;
+   max-width: 1152px;
+   width: 96%;
+   padding: 23px 30px;
+   box-sizing: border-box;
+   border: 1px solid #eee;
+   border-top-color: #222;
+   letter-spacing: -0.5px
+}
+
+.myModify-inner {
+   position: relative;
+   height: 54px
+}
+
+.myModify-inner:before {
+   content: '';
+   position: absolute;
+   width: 54px;
+   height: 54px;
+   top: 50%;
+   left: 0;
+   -webkit-transform: translateY(-50%);
+   -ms-transform: translateY(-50%);
+   transform: translateY(-50%);
+   background:
+      url('${pageContext.request.contextPath}/resources/img/member/alouer.png')
+      no-repeat;
+   background-size: 54px 54px
+}
+
+.myModify-inner h3 {
+   padding: 14px 0 14px 72px;
+   box-sizing: border-box;
+   font-size: 18px;
+   line-height: 1.5;
+   font-weight: 500;
+   text-overflow: ellipsis;
+   overflow: hidden
+}
+
+.myModify-btn {
+   position: absolute;
+   top: 6px;
+   right: 0;
+   width: 105px;
+   height: 42px;
+   border: 1px solid #dfdfdf;
+   border-radius: 21px;
+   font-size: 14px;
+   box-sizing: border-box
+}
+
+.myModify-btn:before {
+   content: ' ';
+   display: block;
+   position: absolute;
+   left: 16px;
+   top: 13px;
+   width: 18px;
+   height: 18px;
+   background: url('/static/pages/img/service/account/profile-edit.png')
+      no-repeat;
+   background-size: 18px
+}
+
+.myModify-btn p {
+   padding-left: 10px;
+   margin-top: 6px
+}
+
+#myAccountNav {
+   width: 96%;
+   max-width: 1152px;
+   margin: 20px auto 0;
+   font-size: 18px
+}
+
+.myAccountNav-btn {
+   display: block;
+   float: left;
+   width: 20%;
+   height: 48px;
+   line-height: 46px;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+   border: 1px solid #dfdfdf;
+   border-left-width: 0;
+   background-color: #fafafa;
+   color: #989898;
+   text-align: center
+}
+
+.myAccountNav-btn.current {
+   border-color: #222;
+   background: #222;
+   color: #fff;
+   cursor: default;
+   font-weight: 500
+}
+
+.myAccountNav-btn:first-child {
+   border-left-width: 1px;
+   border-radius: 3px 0 0 3px
+}
+
+.myAccountNav-btn:last-child {
+   border-radius: 0 3px 3px 0
+}
+
+#userinfo_email {
+   line-height: 2.25;
+   vertical-align: middle
+}
+
+#userinfo_email>span {
+   padding-left: 6px;
+   font-size: 14px;
+   letter-spacing: normal
+}
+
+#my_account_body {
+   width: 96%;
+   max-width: 1152px;
+   margin: 36px auto 0
+}
+
+#my_account_body #password_submit {
+   width: 76px;
+   box-sizing: border-box;
+   padding: 0;
+   font-size: 14px;
+   text-align: center;
+   color: #222;
+   border-color: #222;
+   background-color: #fff
+}
+
+#my_account_body .fieldset {
+   width: 100%;
+   margin: 0 auto
+}
+
+#my_account_body .fieldset .form-row.last {
+   border-color: #222
+}
+
+#my_account_body .form-row {
+   padding: 7px 10px 7px 10px;
+   border-bottom: 1px solid #eee
+}
+
+#my_account_body .form-row .form-left {
+   float: left;
+   width: 20%;
+   font-weight: bold;
+   line-height: 2.25
+}
+
+#my_account_body .form-row .form-right {
+   float: right;
+   width: 80%
+}
+
+#my_account_body .form-right .phone-bar {
+   display: inline-block;
+   margin: 0 .5em;
+   color: #989898
+}
+
+#my_account_body .form-row .form-right>input {
+   width: 13em;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   height: 36px;
+   padding: 0 0 0 6px;
+   border: 1px solid #dfdfdf;
+   font-size: 14px
+}
+
+#my_account_body .form-row .form-right>select {
+   width: 5em;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   height: 36px;
+   padding: 0 0 0 6px;
+   border: 1px solid #dfdfdf;
+   font-size: 0.875em
+}
+
+#my_account_body .form-row .form-right>input.gray, #my_account_body .form-row .form-right>select.gray
+   {
+   background: #fafafa
+}
+
+#my_account_body .form-row .form-right>input:-ms-input-placeholder {
+   color: #dfdfdf
+}
+
+#my_account_body .form-row .form-right>input::-webkit-input-placeholder
+   {
+   color: #dfdfdf
+}
+
+#my_account_body .form-row .form-right>input::-moz-placeholder {
+   color: #dfdfdf
+}
+
+#my_account_body .form-row .form-right>input:-moz-placeholder {
+   color: #dfdfdf
+}
+
+#my_account_body .form-row .form-right>input#inp_userinfo_address1 {
+   width: 20em;
+   margin-right: 1em;
+   margin-bottom: 7px
+}
+
+#my_account_body .form-row .form-right>input#inp_userinfo_address2 {
+   width: 27em
+}
+
+#my_account_body .form-row .form-right>input#search_address_btn {
+   width: 6em;
+   padding: 0;
+   margin-bottom: 7px;
+   color: #222;
+   border-color: #222;
+   background-color: #fff
+}
+
+#my_account_body .form-row .form-right>input[type="tel"] {
+   width: 5em
+}
+
+#my_account_body .input-checkbox {
+   float: left;
+   margin-right: 40px;
+   white-space: nowrap
+}
+
+#my_account_body .input-checkbox .input-checkbox-label {
+   position: relative;
+   line-height: 2.25
+}
+
+#my_account_body .input-checkbox .input-checkbox-label>input {
+   display: none
+}
+
+#my_account_body .input-checkbox .input-checkbox-label>label {
+   position: relative;
+   cursor: pointer;
+   padding: 0 7px 0 24px
+}
+
+#my_account_body .input-checkbox .modify-check+label:before {
+   content: '';
+   display: block;
+   width: 14px;
+   height: 14px;
+   position: absolute;
+   top: 3px;
+   left: 0;
+   border: 1px solid #dfdfdf;
+   background-color: #fff
+}
+
+#my_account_body .input-checkbox .input-checkbox-label>label:after {
+   position: absolute;
+   top: 6px;
+   left: 2px;
+   width: 9px;
+   height: 5px;
+   content: '';
+   -webkit-transform: rotate(-45deg);
+   -ms-transform: rotate(-45deg);
+   transform: rotate(-45deg);
+   opacity: 0;
+   border: 2px solid #df3b32;
+   border-top: none;
+   border-right: none;
+   background: transparent;
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   filter: alpha(opacity = 0)
+}
+
+#my_account_body .input-checkbox .input-checkbox-label>label:hover::after
+   {
+   opacity: 0.3;
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+   filter: alpha(opacity = 30)
+}
+
+#my_account_body .input-checkbox input[type=checkbox]:checked+label:after
+   {
+   opacity: 1;
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity = 100)
+}
+
+#my_account_body .input-checkbox .input-checkbox-label>label>span {
+   line-height: 1.5;
+   font-size: 14px;
+   vertical-align: text-top
+}
+
+#my_account_body .form-row .form-left>span {
+   line-height: 1;
+   letter-spacing: -0.5px
+}
+
+#my_account_body .label-red {
+   color: #f32123
+}
+
+#my_account_body h3 {
+   padding-bottom: 12px;
+   border-bottom: 1px solid;
+   font-size: 20px;
+   letter-spacing: -0.8px;
+   font-weight: bold
+}
+
+#table_userinfo {
+   border-top: 1px solid #222
+}
+
+#userinfo_password>input {
+   margin-bottom: 7px
+}
+
+#userinfo_password>input:nth-child(n+4) {
+   margin-bottom: 0
+}
+
+#userinfo_password>input:last-child {
+   margin-left: 8px
+}
+
+#my_account_body.modify div.submit_wrapper {
+   width: 200px;
+   margin: 21px auto 50px;
+   text-align: center
+}
+
+#my_account_body.modify div.submit_wrapper input#save_submit {
+   display: inline-block;
+   width: 10em;
+   margin: 0 0.5%;
+   padding: 0.5em 2.2em;
+   cursor: pointer;
+   color: #fff;
+   background: #222;
+   text-align: center;
+   border: 1px solid #c8c8c8;
+   border-radius: 3px;
+   font-size: 1.25em
+}
+
+#order-process-guide {
+   width: 96%;
+   background: #fafafa;
+   border: 1px solid #eee;
+   text-align: center;
+   max-width: 1152px;
+   margin: 16px auto 0;
+   padding: 2% 0
+}
+
+#order-process-guide .order-process-guide-step {
+   display: inline-block;
+   width: 16.666%;
+   position: relative
+}
+
+#order-process-guide .order-process-guide-step-arrow {
+   position: absolute;
+   top: 30%;
+   right: 0;
+   -webkit-transform: translate(50%, -50%);
+   -ms-transform: translate(50%, -50%);
+   transform: translate(50%, -50%)
+}
+
+#my_account_body.orders table.order_list {
+   width: 100%;
+   background-color: #f9f9f9;
+   border-top: 1px solid #eee;
+   border-bottom: 1px solid #eee;
+   font-size: 0.875em;
+   line-height: 1.5;
+   letter-spacing: -0.5px
+}
+
+#my_account_body.orders table.order_list th {
+   padding: 7px 10px;
+   box-sizing: border-box;
+   border-right: 1px solid #eee;
+   border-bottom: 1px solid #eee;
+   background-color: #f8f9fa
+}
+
+#my_account_body.orders table.order_list th.type {
+   width: 10%
+}
+
+#my_account_body.orders table.order_list th.date_return {
+   width: 17%
+}
+
+#my_account_body.orders table.order_list th.status {
+   width: 12%
+}
+
+#my_account_body.orders table.order_list th.date_install {
+   width: 15%
+}
+
+#my_account_body.orders table.order_list td {
+   border-bottom: 1px solid #eee;
+   border-right: 1px solid #eee;
+   text-align: center;
+   background-color: #fff;
+   padding: 12px 6px
+}
+
+#my_account_body.orders table.order_list th:last-child, #my_account_body.orders table.order_list td:last-child
+   {
+   border-right: none
+}
+
+#my_account_body.orders table.order_list td.text {
+   text-align: left
+}
+
+#my_account_body.orders table.order_list td.date_order a, .m_order_sub>a
+   {
+   color: #0067fc
+}
+
+#my_account_body.orders table.order_list td.artworks {
+   text-align: left;
+   padding-left: 5px
+}
+
+#my_account_body.contacts div.inquiries_view.contact {
+   margin-bottom: 24px
+}
+
+#my_account_body.contacts table.inquiry_list {
+   width: 100%;
+   background-color: #f9f9f9;
+   border-top: 1px solid #eee;
+   border-bottom: 1px solid #eee;
+   font-size: 0.875em;
+   line-height: 1.5
+}
+
+#my_account_body.contacts table.inquiry_list th {
+   padding: 7px 10px;
+   border-right: 1px solid #eee;
+   border-bottom: 1px solid #eee;
+   background-color: #f8f9fa
+}
+
+#my_account_body.contacts table.inquiry_list th:last-child,
+   #my_account_body.contacts table.inquiry_list td:last-child {
+   border-right: none
+}
+
+#my_account_body.contacts table.inquiry_list th.date_contacts {
+   width: 8em
+}
+
+#my_account_body.contacts table.inquiry_list th.date {
+   width: 10em
+}
+
+#my_account_body.contacts table.inquiry_list th.status {
+   width: 6em
+}
+
+#my_account_body.contacts table.inquiry_list td {
+   border-bottom: 1px solid #eee;
+   border-right: 1px solid #eee;
+   text-align: center;
+   padding: 12px 10px;
+   background: #fff
+}
+
+#my_account_body.contacts table.inquiry_list td.number a {
+   color: #4085df
+}
+
+#my_account_body.contacts table.inquiry_list td.text {
+   text-align: left
+}
+
+#my_account_body.contact_detail #inquiry_detail_table {
+   width: 100%;
+   background-color: #f9f9f9;
+   border-top: 1px solid #eee;
+   border-bottom: 1px solid #eee;
+   font-size: 0.875em;
+   line-height: 2
+}
+
+#my_account_body.contact_detail #inquiry_detail_table th {
+   width: 7em;
+   vertical-align: top;
+   padding: 0.2em;
+   background-color: #e8e8e8;
+   border-bottom: 1px solid #eee
+}
+
+#my_account_body.contact_detail #inquiry_detail_table td {
+   padding: 0.2em 0.5em;
+   border-bottom: 1px solid #eee
+}
+
+#my_account_body.contact_detail #inquiry_detail_table td.add_inquiry {
+   padding-top: 0.5em;
+   padding-bottom: 0.5em
+}
+
+#my_account_body.contact_detail #inquiry_detail_table td.add_inquiry div.textarea_wrapper
+   {
+   border: 1px solid #a9a9a9
+}
+
+#my_account_body.contact_detail #inquiry_detail_table td.add_inquiry textarea
+   {
+   resize: none;
+   border: none;
+   width: 100%;
+   height: 5em
+}
+
+#my_account_body.contact_detail #inquiry_detail_table td.add_inquiry div.submit_row
+   {
+   text-align: right;
+   margin-top: 0.5em
+}
+
+#my_account_body.contact_detail #inquiry_detail_table td.add_inquiry div.submit_row input
+   {
+   padding: 0 0.8em;
+   cursor: pointer;
+   font-weight: bold;
+   line-height: 1.5em;
+   background-color: #1c1c1c;
+   border: none;
+   color: #fff;
+   margin-left: 1em
+}
+
+#my_account_body .ordercode {
+   color: #4085df
+}
+
+#my_account_body .contacts-status-completed, #my_account_body .contacts-status
+   {
+   padding: 6px 13px;
+   border-radius: 3px;
+   font-size: 13px;
+   letter-spacing: -0.5px
+}
+
+#my_account_body .contacts-status {
+   border: 1px solid #dfdfdf
+}
+
+#my_account_body .contacts-status-completed {
+   border: 1px solid #4085df;
+   color: #4085df
+}
+
+#my_account_body.orders table.order_list th.date_order {
+   width: 12%
+}
+
+.m_order_list {
+   display: none
+}
+
+td.empty {
+   line-height: 120px
+}
+
+#reauthentication {
+   width: 96%;
+   max-width: 1152px;
+   margin: 72px auto;
+   line-height: 1.5
+}
+
+#reauthentication-description {
+   font-size: 20px;
+   text-align: center
+}
+
+.reauthentication-formWrap {
+   position: relative;
+   width: 318px;
+   margin: 64px auto 0
+}
+
+.reauthentication-formWrap>h4 {
+   position: absolute;
+   top: -34px;
+   left: 0;
+   font-size: 16px;
+   font-weight: bold
+}
+
+.reauthentication-sns-btn {
+   display: block;
+   width: 100%;
+   height: 48px;
+   border: 0;
+   outline: 0;
+   font-size: 16px;
+   background: #4267b2
+      url('/static/pages/img/service/auth/ic-facebook-18.png') 18px center
+      no-repeat;
+   background-size: 18px 18px;
+   color: #fff;
+   transition: opacity 0.1s ease-in-out
+}
+
+#reauthentication-naver {
+   background: #1ec800
+      url('/static/pages/img/service/auth/ic-naver-18.png') 18px center
+      no-repeat;
+   background-size: 18px 18px
+}
+
+#reauthentication-kakao {
+   background: #ffeb00
+      url('/static/pages/img/service/auth/ic-kakao-18.png') 18px center
+      no-repeat;
+   background-size: 18px 18px;
+   color: #3c1e1e
+}
+
+.reauthentication-sns-btn:hover {
+   opacity: 0.9
+}
+
+#reauthentication-password-input {
+   display: block;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   width: 240px;
+   height: 48px;
+   padding: 0 10px;
+   border: 1px solid #dfdfdf;
+   outline: 0;
+   font-size: 14px;
+   line-height: 46px
+}
+
+#reauthentication-password-submit {
+   position: absolute;
+   display: block;
+   top: 0;
+   right: 0;
+   width: 70px;
+   height: 48px;
+   border: 0;
+   outline: 0;
+   font-size: 14px;
+   background: #222;
+   color: #fff;
+   transition: opacity 0.1s ease-in-out
+}
+
+#reauthentication-password-submit:hover {
+   opacity: 0.9
+}
+
+#userInfo-profile {
+   position: relative
+}
+
+.userInfo-profile-box {
+   position: relative;
+   display: inline-block;
+   width: 263px;
+   height: 36px;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   border: 1px solid #dfdfdf;
+   font-size: 14px;
+   line-height: 34px;
+   background-color: #eee
+}
+
+#userInfo-profile-recertifyButton {
+   display: none;
+   position: absolute;
+   width: 76px;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   border: 1px solid #222;
+   font-size: 14px;
+   color: #222;
+   background-color: #fff
+}
+
+#userInfo-profile-mask {
+   position: absolute;
+   top: -1px;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   padding-top: 60px;
+   border: 1px solid #dfdfdf;
+   background-color: rgba(250, 250, 250, 0.9);
+   overflow: hidden;
+   z-index: 1
+}
+
+#userInfo-profile-mask>p {
+   font-size: 14px;
+   text-align: center
+}
+
+#userInfo-profile-certifyButton {
+   display: block;
+   width: 200px;
+   height: 46px;
+   border: 0;
+   outline: 0;
+   margin: 16px auto 0;
+   background-color: #222;
+   font-size: 14px;
+   color: #fff;
+   transition: opacity 0.1s ease-in-out
+}
+
+#userInfo-profile-certifyButton:hover {
+   opacity: 0.9
+}
+
+#userInfo-profile.certified #userInfo-profile-mask {
+   display: none
+}
+
+#userInfo-profile.certified .userInfo-profile-box {
+   border: none;
+   background-color: transparent
+}
+
+#userInfo-profile.certified #userInfo-profile-recertifyButton {
+   display: block
+}
+
+.account-gifts {
+   background: #fafafa;
+   margin-bottom: 36px;
+   padding: 60px 0 20px;
+   border: 1px solid #dfdfdf;
+   box-sizing: border-box;
+   text-align: center;
+   letter-spacing: -0.5px
+}
+
+.gift-table {
+   margin-bottom: 24px
+}
+
+.account-gifts-text {
+   margin-bottom: 60px
+}
+
+.account-gifts-text>p {
+   font-size: 18px;
+   margin-bottom: 4px
+}
+
+.account-gifts-text>span {
+   display: inline-block;
+   font-size: 36px;
+   font-weight: bold;
+   line-height: 54px
+}
+
+#gift_enrollment {
+   position: relative;
+   cursor:pointer;
+   width: 60%;
+   margin: 0 auto;
+   padding: 18px 0 18px 0;
+   border: 1px solid #222;
+   font-size: 14px;
+   text-align: center;
+   box-sizing: border-box;
+   background: url('/static/pages/img/service/account/point_icon.png')
+      no-repeat;
+   background-position: 158px center;
+   background-color: #fff
+}
+
+#my_account_body.gift table.inquiry_list {
+   width: 100%;
+   background-color: #f9f9f9;
+   border-top: 1px solid #eee;
+   border-bottom: 1px solid #eee;
+   font-size: 0.875em;
+   line-height: 1.5
+}
+
+#my_account_body.gift table.inquiry_list th {
+   padding: 7px 10px;
+   border-right: 1px solid #eee;
+   border-bottom: 1px solid #eee;
+   background-color: #f8f9fa
+}
+
+#my_account_body.gift table.inquiry_list th:last-child, #my_account_body.gift table.inquiry_list td:last-child
+   {
+   border-right: none
+}
+
+#my_account_body.gift table.inquiry_list td {
+   border-bottom: 1px solid #eee;
+   border-right: 1px solid #eee;
+   text-align: center;
+   padding: 12px 10px;
+   background: #fff
+}
+
+#my_account_body.gift table.inquiry_list th.gift-contact {
+   width: 15%
+}
+
+#my_account_body.gift table.inquiry_list th.gift-type {
+   width: 8%
+}
+
+#my_account_body.gift table.inquiry_list th.gift-text {
+   width: 50%
+}
+
+#my_account_body.gift table.inquiry_list th.gift-value {
+   width: 12%
+}
+
+#my_account_body.gift table.inquiry_list th.gift-enddate {
+   width: 15%
+}
+
+#my_account_body.gift table.inquiry_list td.gift-text {
+   text-align: left
+}
+
+.order-type {
+   width: 96%;
+   max-width: 1152px;
+   margin: 24px auto 0;
+   font-size: 18px;
+   font-weight: bold
+}
+
+.order-type>li {
+   display: inline-block;
+   color: #989898;
+   cursor: pointer
+}
+
+.order-type>li:first-child:after {
+   content: 'I';
+   color: #222 !important;
+   margin: 0 20px;
+   font-weight: 300
+}
+
+.order-type>li.active {
+   color: #222;
+   cursor: default
+}
+
+#my_artwork_order, #my_gift_order {
+   display: none
+}
+
+#my_artwork_order.active, #my_gift_order.active {
+   display: block
+}
+
+.orders_view.in_progress {
+   margin-bottom: 48px
+}
+
+#myModify-name>span {
+   display: inline-block
+}
+
+#withdrawal_btn {
+   margin: 15px 0 0 auto;
+   width: 82px;
+   border: 1px solid #dfdfdf;
+   box-sizing: border-box;
+   text-align: center;
+   color: #989898;
+   height: 36px;
+   line-height: 36px;
+   font-size: 14px
+}
+
+#withdrawal_btn span {
+   display: none
+}
+
+@media ( max-width :991px) {
+   #myAccountNav {
+      font-size: 15px
+   }
+   .myAccountNav-btn {
+      height: 42px;
+      line-height: 40px
+   }
+   .order-type>li {
+      font-size: 16px
+   }
+}
+
+@media screen and (max-width:767px) {
+   #my_account_body h3 {
+      font-size: 15px;
+      padding-bottom: 10px
+   }
+   #order-process-guide {
+      margin-top: 0
+   }
+   #my_account_body {
+      margin-top: 30px
+   }
+   #my_account_body .form-row {
+      padding-left: 0
+   }
+   #my_account_body.contacts div.inquiries_view.contact {
+      margin-bottom: 30px
+   }
+   #my_account_body.orders {
+      margin-top: 24px
+   }
+   #my_account_body.orders div.orders_view.in_progress {
+      margin-bottom: 24px
+   }
+   #my_account_body.orders table.order_list th {
+      font-size: 12px
+   }
+   #my_account_body.orders table.order_list td {
+      font-size: 12px
+   }
+   #order-process-guide .order-process-guide-step-steps {
+      width: 58px
+   }
+   #order-process-guide .order-process-guide-step-arrow {
+      width: 18px
+   }
+   #my_account_body.contacts table.inquiry_list {
+      font-size: 12px
+   }
+   #my_account_body .contacts-status-completed, #my_account_body .contacts-status
+      {
+      padding: 6px 8px
+   }
+   .account-gifts-text {
+      margin-bottom: 24px
+   }
+   #gift_enrollment {
+      width: 486px;
+      background-position: 132px center
+   }
+   .order-type>li {
+      font-size: 14px;
+      margin-bottom: 14px
+   }
+   .order-type>li:first-child:after {
+      margin: 0 10px
+   }
+}
+
+@media screen and (max-width:543px) {
+   #myAccountNav {
+      font-size: 14px
+   }
+   .myAccountNav-btn {
+      height: 36px;
+      line-height: 34px
+   }
+   #my_account_body.orders table.order_list th, #my_account_body.contacts table.inquiry_list th
+      {
+      padding: 7px 4px
+   }
+   #my_account_body.contacts table.inquiry_list td, #my_account_body.orders table.order_list td
+      {
+      padding: 6px
+   }
+   #my_account_body .form-row .form-right, #my_account_body .form-row .form-left,
+      #my_account_body .form-row .form-right>input#inp_userinfo_address2 {
+      width: 100%
+   }
+   #my_account_body .form-row .form-right>input#inp_userinfo_address1 {
+      width: 68%;
+      margin-right: 2%
+   }
+   #my_account_body .form-row .form-right>input#search_address_btn {
+      width: 30%
+   }
+   #my_account_body .form-row .form-right>input {
+      width: 70%
+   }
+   #my_account_body #password_submit {
+      width: 28%
+   }
+   #userinfo_password>input:last-child {
+      margin-left: 2%
+   }
+   #my_account_body .contacts-status-completed, #my_account_body .contacts-status
+      {
+      font-size: 10px;
+      padding: 6px 8px
+   }
+   #order-process-guide .order-process-guide-step-steps {
+      width: 42px
+   }
+   #order-process-guide .order-process-guide-step-arrow {
+      width: 12px
+   }
+   #my_account_body {
+      margin-top: 20px
+   }
+   #my_account_body h3 {
+      font-size: 14px;
+      padding-bottom: 8px
+   }
+   #my_account_body.orders table.order_list {
+      
+   }
+   #my_account_body.orders table.order_list {
+      display: none
+   }
+   .m_order_list {
+      display: block;
+      position: relative;
+      font-size: 12px
+   }
+   .m_order_list_detail {
+      line-height: 1.5;
+      padding: 10px 0;
+      border-bottom: 1px solid #dfdfdf
+   }
+   .m_order_list_txt {
+      margin-left: 60px;
+      padding-left: 12px
+   }
+   .m_order_img {
+      width: 60px;
+      position: absolute;
+      left: 0
+   }
+   .m_order_title {
+      width: 60px;
+      margin-right: 20px;
+      display: inline-block;
+      position: absolute;
+      font-weight: bold
+   }
+   .m_order_sub {
+      float: left;
+      margin-left: 80px
+   }
+   .m_order_list_txt>div {
+      padding-bottom: 3px
+   }
+   #my_account_body.orders div.orders_view.in_progress {
+      margin-bottom: 20px
+   }
+   .m_order_not {
+      line-height: 124px;
+      text-align: center
+   }
+   #my_account_body .input-checkbox .modify-check+label:before {
+      top: 2px
+   }
+   #my_account_body .input-checkbox .input-checkbox-label>label:after {
+      top: 5px
+   }
+   #my_account_body .input-checkbox .input-checkbox-label>label>span {
+      vertical-align: baseline
+   }
+   #reauthentication {
+      margin: 36px auto
+   }
+   #reauthentication-description {
+      font-size: 14px
+   }
+   .reauthentication-formWrap {
+      width: 240px;
+      margin-top: 46px
+   }
+   .reauthentication-formWrap>h4 {
+      top: -26px;
+      font-size: 12px
+   }
+   .reauthentication-sns-btn {
+      height: 46px;
+      font-size: 14px
+   }
+   #reauthentication-password-input {
+      width: 166px;
+      height: 46px;
+      padding: 0 6px;
+      line-height: 44px
+   }
+   #reauthentication-password-submit {
+      height: 46px
+   }
+   #userInfo-profile-mask {
+      padding-top: 120px
+   }
+   .userInfo-profile-box {
+      width: 100%
+   }
+   .gift-table {
+      font-size: 12px
+   }
+   #my_account_body.gift table.inquiry_list td {
+      padding: 12px 3px
+   }
+   #my_account_body.gift table.inquiry_list th {
+      padding: 5px 3px
+   }
+   #my_account_body.gift table.inquiry_list th.gift-type {
+      width: 15%
+   }
+   #my_account_body.gift table.inquiry_list th.gift-value {
+      width: 20%
+   }
+   #my_account_body.gift table.inquiry_list th.gift-text {
+      width: 25%
+   }
+   #gift_enrollment {
+      font-size: 13px;
+      width: 256px;
+      padding: 16px 0 16px 26px;
+      background-position: 32px 14px;
+      background-size: 16px
+   }
+   .account-gifts-text {
+      margin-bottom: 18px
+   }
+   .account-gifts {
+      padding-top: 30px
+   }
+   .account-gifts-text>p {
+      font-size: 16px
+   }
+   .account-gifts-text>span {
+      font-size: 30px;
+      line-height: 42px
+   }
+   #myModify {
+      margin-top: 30px;
+      padding: 12px 6px
+   }
+   .myModify-inner {
+      height: auto
+   }
+   .myModify-inner:before {
+      width: 36px;
+      height: 36px;
+      background-size: 36px 36px
+   }
+   .myModify-inner h3 {
+      padding: 9px 0 7px 44px;
+      font-size: 14px;
+      max-width: 188px
+   }
+   .myModify-btn {
+      width: 100px;
+      height: 36px;
+      top: 0
+   }
+   .myModify-btn p {
+      margin-top: 5px;
+      padding-left: 15px;
+      font-size: 13px
+   }
+   .myModify-btn:before {
+      top: 8px;
+      left: 12px
+   }
+   #modify_userinfo_form {
+      position: relative
+   }
+   #withdrawal_btn {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      border: 0;
+      height: auto;
+      line-height: 1.5;
+      text-decoration: underline
+   }
+   #withdrawal_btn span {
+      display: inline-block;
+      font-size: 12px;
+      padding-right: 8px;
+      text-decoration: none
+   }
+   #my_account_body.modify div.submit_wrapper input#save_submit {
+      width: 259px;
+      height: 46px;
+      line-height: 46px;
+      font-size: 18px;
+      padding: 0;
+      margin: 0 auto
+   }
+   #my_account_body.modify div.submit_wrapper {
+      width: auto;
+      margin: 20px auto 40px
+   }
+}
+
+@media ( max-width :375px) {
+   #myAccountNav {
+      margin: 14px auto;
+      font-size: 13px
+   }
+   .myAccountNav-btn {
+      height: 32px;
+      line-height: 30px
+   }
+}

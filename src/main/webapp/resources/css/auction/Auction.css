@@ -1,0 +1,212 @@
+@charset "UTF-8";
+
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: normal;
+   src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'),
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'),
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');
+}
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: bold;
+   src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'),
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'),
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');
+}
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.5px;
+}
+body.imp-payment-progress {position: static}
+body.imp-payment-progress > :not(.imp-dialog) {display: none}
+.imp-dialog {display : none; position : fixed; top : 0; bottom : 0;left : 0; right : 0; width : 100%; height: 100%; z-index:99999;}
+.imp-dialog .imp-frame-pc.imp-frame-danal, .imp-dialog .imp-frame-pc.imp-frame-danal_tpay { left:50% !important; margin-left:-345px; width:720px !important; height:700px !important; margin-top: 50px;}
+.imp-dialog .imp-frame-pc.imp-frame-mobilians { left:50% !important; margin-left:-410px; width:820px !important; height:700px !important; margin-top: 50px;}
+.imp-dialog .imp-header {display:none; background:transparent; position:absolute; top:0; left:0; right:0; height:25px;}
+.imp-dialog .imp-close {text-decoration : none; position : absolute; top : 10px; right : 10px; cursor : pointer; background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAVlpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KTMInWQAAAV1JREFUOBHNkz1Ow0AQhWMHioggUSFEyRGAggp6KqDhDHAFOioU/loQoqDlGhyAgmtQ0gEO31jz1iPbcZyOlUY7fvvem9mdZDD472vY0mDegrVBGaBF54qELuPYSNQkc4FjkHNCAu2JSLLkHxvsZ+Gg9FAXUw4M+CI+8zy/cuIvezQ1sx9iDOeS/YOwZT7m0VgqcITgOpwars5WOXvke9vPY8EgqVIJTxDeVXCZWWdPZLuOL9fOZ35G03tnjbyznS4zDaPNWe91iNE+hGlRFK/s74R19k0stNJ1six7w/QlqPXWAepOdWUbwDPULeKAPL7p3GGohMzqA7DzY0xvRWSfayrCCsIHBHGaKmTTr/+kQo0q1busuZl+Z+ktocrUOr2ppM3/tKY9hDiBuOfkaCa9TE8BLhyUXpxUYQSy7qiun0gh0W02wWbyYhUJgkcj7cMpRb2JsBfhNjrqBfwBsGIgzBGH3EgAAAAASUVORK5CYII=');}.imp-dialog.pc .imp-frame-danal-certification {width:410px !important;height:660px !important;margin:10px auto;background: #fff;}
+.imp-dialog.pc.certification-danal {background: rgb(255, 255, 255);background: rgba(0,0,0,0.5);}
+.imp-dialog.pc.certification-danal .imp-header {display:block; width: 410px;margin:0 auto;}
+.imp-dialog.pc.certification-danal .imp-header .imp-close {top:18px; right:25px; width:19px; height:19px;}
+.imp-dialog.mobile.ios {position:absolute;}
+.imp-dialog.mobile.certification-danal .imp-header {display:block;}
+.imp-dialog.mobile.certification-danal .imp-header .imp-close {top:6px; right:10px; width:19px; height:19px;}
+.imp-dialog.pc.payment-settle_firm {background: rgb(221, 221, 221);background: rgba(0,0,0,0.5);}
+.imp-dialog.pc .imp-frame-settle_firm.layer {width:410px !important;height:700px !important;margin:10px auto;background: #fff;}
+.imp-dialog.pc.payment-kakaopay {background: rgb(221, 221, 221);background: rgba(0,0,0,0.5);}
+.imp-dialog.pc.payment-kakaopay .imp-frame-kakaopay {width: 426px !important; height: 550px !important; left: 50% !important; top: 50% !important; margin-left:-213px !important;margin-top: -275px !important;}
+
+.artworkDetail {
+    width: 100%;
+    max-width: none;
+    padding-bottom: 76px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+/* 여기는 옥션 view 의 오른쪽 메뉴*/
+*{
+   font-family: 'Roboto', 'Noto Sans KR','Malgun Gothic', sans-serif;
+}
+.detailRight .detail-right-text .lot-number {
+    font-size: 24px;
+    color: #81031c;
+    font-weight: bold;
+    letter-spacing: -0.96px;
+}
+.detailRight .detail-right-text .product-name {
+    letter-spacing: -1.28px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 700;
+    font-size: 30px;
+    padding: 10px 0 5px;
+}
+.detailRight .detail-right-text .product-about {
+    font-size: 16px;
+    color: #868e96;
+    letter-spacing: -0.56px;
+    padding: 0px 0 20px;
+}
+.detailRight .detail-right-text .productT {
+    font-size: 15px;
+    color: #343a40;
+    letter-spacing: -0.6px;
+    line-height: 22px;
+    font-weight: 400;
+}
+.detailRight .detaileTexts p {
+    font-size: 12px;
+    letter-spacing: -0.48px;
+    font-weight: 400;
+    color: #868e96;
+    text-align: right;
+}
+.detailRight .detaileTexts>li {
+    font-family: 'Roboto', 'Noto Sans KR','Malgun Gothic', sans-serif;
+    height: 45px;
+}
+.detailRight .detaileTexts>li span.detail-texts-name1-color {
+    font-size: 22px;
+    color: #f75467;
+}
+.detail-texts >li .detail-texts-name1 {
+    float: right;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: -0.64px;
+    font-weight: 400;
+}
+#timeOut {
+   padding-top:10px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #495057;
+    letter-spacing: -0.96px;
+    text-align:center;
+    align-items:center;
+}
+.re-red{
+   color: gray;
+   font-size: small;
+   text-align: right;
+}
+.unit{
+   text-align: right;
+}
+.share-btn-in {
+    position: absolute;
+    top: 60px;
+    width: 222px;
+    height: 60px;
+    padding: 10px;
+    border: 1px solid #e9ecef;
+    background: #fff;
+}
+.share-btn-in .shareLi {
+    float: left;
+    padding: 0px 5px;
+    width: 50px;
+    list-style: none;
+}
+#endTime {
+    padding-top: 10px;
+    font-size: 1em;
+    font-weight: 500;
+    color: #495057;
+    letter-spacing: -0.96px;
+    text-align: center;
+    align-items: center;
+}
+#newBid, #lot   {
+   margin-top:0em;
+   color:black;
+    font-size: 18px;
+    width: 50%;
+    /* float: right; */
+}
+.detail-input{
+   float: right;
+   text-align: right;
+}
+.detail-input input{
+   border:1px solid white;
+   border-bottom: 1px solid black;
+   text-align: right;
+}
+.bidding {
+   text-align: right;
+   float-right
+}
+.rate{
+   font-size: 0.9em;
+   color: graytext;
+}
+.userBorder {
+   border: 1px solid red; 
+   box-sizing: border-box;
+}
+.artworkDetail-inner{
+   padding-bottom: 20px;
+}
+.currentDisplay, .currentAuction{
+   margin-top: 0px;
+}
+style{
+   float: right; margin-left: 5px;
+}
+.currentDisplay table, .currentAuction table{
+   width: 95%;
+}
+.spinner-grow{
+   vertical-align: middle;
+}
+.title{
+   color: white;
+   font-size: 1.2em;
+}
+table{
+   margin: 3px;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #2a2a2a;
+    font-family: 'Roboto', 'Noto Sans KR','Malgun Gothic', sans-serif;
+}
+th{
+   text-align: center;
+   font-size: 0.9em;
+}
+.currentBid tr td{
+   text-align: center;
+   padding-left: 0;
+   padding-right: 0;
+}
+.currentBid tr{
+   text-align: center;
+   font-size: 0.8em;
+}
+

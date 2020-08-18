@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.rentalImpl">
+
+
+	<insert id="rentalBook" parameterType="mybatis.ParameterDTO">		
+		INSERT INTO rentalwaiting VALUES(rental_wt_seq.nextval ,#{code},#{memberId}, sysdate)	
+	</insert>
+	
+	<select id="selectBook" parameterType="mybatis.ParameterDTO" resultType="int">
+		SELECT count(*) FROM rentalwaiting WHERE code = #{code}
+	</select>		
+	
+	<insert id="rentalInsert" parameterType="mybatis.RentalTransDTO">
+
+		INSERT INTO rental_trans(idx, code, memberid, rentalbegin, rentalend, transtype, totalAmount) 
+		VALUES(rental_tr_seq.nextval, #{code}, #{memberId}, #{rentalBegin}, #{rentalEnd},#{transType}, #{totalAmount})	
+	</insert>
+	
+	<update id="updateStatus" parameterType="mybatis.RentalTransDTO">			
+		UPDATE arts SET status = '렌탈중' WHERE code = #{code}	
+	</update>
+	
+	<!-- 작품코드로 작품정보 모두 가져오기 -->
+	<select id="viewinfo" resultType="mybatis.ArtsDTO" parameterType="mybatis.ParameterDTO" >
+		SELECT * FROM arts WHERE code=#{code}
+	</select>
+
+	<!-- 회원아이디로 회원정보 가져오기 -->
+	<select id="memberinfo" parameterType="mybatis.ParameterDTO" resultType="mybatis.MemberVO">
+	  SELECT * FROM alouer_member WHERE memberId = #{memberId }
+	</select>	
+	
+	
+	<!-- 렌탈 결제까지 완료 후 DB 등록 처리 -->
+	<insert id="rentalTrans" parameterType="mybatis.RentalTransDTO">
+		INSERT INTO rental_trans (
+			idx, 
+			code, memberid, rentalbegin, rentalend, transtype, totalamount, 
+			rentalprice, phone, address1, address2, ordertime, receiver
+			)
+		VALUES (
+			'R-'||rental_tr_seq.nextval, 
+			#{code}, #{memberId}, #{rentalBegin}, #{rentalEnd}, #{transType}, #{totalAmount},
+			#{rentalPrice}, #{phone}, #{address1}, #{address2}, sysdate, #{receiver}
+			)
+	</insert>
+	
+	
+	<!-- 멤버아이디로 렌탈내역과 작품정보 가지고 오기 -->
+	<select id="rentalTransInfo" parameterType="mybatis.ParameterDTO" resultType="mybatis.RentalTransDTO">
+		SELECT * FROM (
+		    SELECT Tb.*, rownum rNum FROM (
+		        SELECT * FROM 
+		            (
+		            SELECT * FROM rental_trans
+		                )A
+		            inner join (
+		                SELECT * FROM arts
+		                )B
+		            on A.code = B.code 
+		        WHERE A.memberId = #{memberId} order by A.idx desc
+		    )Tb
+		) 
+		WHERE rNum between #{start} and #{end}
+	</select>
+	
+	<!-- 렌탈 개수 가져오기 -->	
+	<select id="getTotalRentCount" resultType ="int" parameterType="mybatis.ParameterDTO">
+		SELECT COUNT(*) FROM (
+			SELECT * FROM rental_trans
+			<if test="searchTxt != null and !searchTxt.equals('')">
+				WHERE ${searchField} like '%'||#{searchTxt}||'%'
+			</if>
+			)
+		WHERE memberId=#{memberId}
+		
+	</select>
+
+	
+		
+	<!-- 관리자 메인 화면 대시 보드에 렌탈중 카운트 표시 -->
+	<select id="adminDashboardRentalCount" resultType="int" >
+		SELECT COUNT(*) FROM rental_trans WHERE transtype='렌탈중'
+	</select>		
+	
+	
+</mapper>

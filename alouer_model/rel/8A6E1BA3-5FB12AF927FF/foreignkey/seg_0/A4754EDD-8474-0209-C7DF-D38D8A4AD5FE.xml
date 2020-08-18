@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A4754EDD-8474-0209-C7DF-D38D8A4AD5FE" containerWithKeyObject="154B8584-2B1E-7130-09A2-B118FDB884A6" localFKIndex="8E72CA61-7205-C663-0DF4-92841E75FDB7" name="DEPOSIT_FK">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>919E7974-1DB7-99F9-97BE-508E2B2589B0</importedID>
+<referredTableLongName>KOSMO.ALOUER_MEMBER</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>8C9B51FE-868F-48A4-1390-7E951FFB9708</referredTableID>
+<keyObject>E2A61C2A-4360-6DA9-F090-4F62CBB034EB</keyObject>
+<referredKeyID>E2A61C2A-4360-6DA9-F090-4F62CBB034EB</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>MEMBERID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

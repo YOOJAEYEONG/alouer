@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3325BD29-F58B-480A-C147-2FF2AA6D55DF" schemaObject="28D47C7A-84E1-92EE-5940-49AEB371C03C" name="AUCTIONINFO">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>08A5ED43-A5C1-FB15-7CEC-F37D2DFC23F4</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="AUCTIONID" id="E935FB26-EC6F-8376-06F2-0849F4139D75">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>7682C878-6104-B9CD-D0EA-47A1161692C8</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CODE" id="2939F416-211F-53ED-C73B-9ACC88A06CF4">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>B9D801A5-B3E3-C116-93D7-313BFCA7937B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="10D66665-D682-D28B-FCA2-1542D1182820" referredColumn="053505E6-C61B-111F-481A-90EF79C04737"/>
+</associations>
+</Column>
+<Column name="STARTBIDS" id="B2003261-F0C2-568F-21FF-3E407575C8B5">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>CD61F383-1652-F4D0-4130-EE4F8D004EDC</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STARTTIME" id="264EC599-A3D4-60C4-8DEE-1D44B90BAEE4">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>B4DEC7FA-6621-E3AF-BFF3-50D86E54A035</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ENDTIME" id="B3CC568F-923A-11A4-EC43-40D2E78E6331">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>29C196E8-9327-0011-0620-C2CA51249629</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AUCTIONTOTAL" id="06E04A8C-A58D-2316-207F-C309C9886FE5">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>EC459812-B66D-9F3D-9B44-B2C3EF46A442</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ISFINISH" id="080D7AE8-E196-F1CD-1CD6-389934A6145B">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>B0B55BB8-AE51-7FCE-5048-D5245812D184</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="280775B4-10A1-8B4F-DF22-6ECA315645F2" name="AUCTIONINFO_PK">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>4611FCB5-193F-97B0-6194-240AA6353FC5</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E935FB26-EC6F-8376-06F2-0849F4139D75"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="874EB67F-F614-A010-C843-CDD0BC2FDD85" schemaObject="28D47C7A-84E1-92EE-5940-49AEB371C03C" name="SYS_C0014453">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<importedID>29C110C4-D80D-1CA4-E04F-49855DDBBCA4</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E935FB26-EC6F-8376-06F2-0849F4139D75"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F34A0590-F7B8-B3DD-DE3E-7B94865541B4" name="AUCTIONINFO_FK">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2939F416-211F-53ED-C73B-9ACC88A06CF4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

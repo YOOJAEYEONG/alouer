@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.MainImpl">
+
+		<!-- 경매 작품정보 가져오기 -->
+		<select id="mainList" resultType="mybatis.MainDTO" parameterType="mybatis.ParameterDTO">
+			SELECT * FROM (
+		        SELECT Tb.*, rownum rNum FROM (
+		            select distinct A.code, A.title, A.name, A.imageurl, B.auctiontotal, C.counttrans, C.auctionid
+		            from 
+		                (
+		                select code, title, name, imageurl from arts
+		                    ) A
+		                inner join (
+		                    select info.auctionid auctionid, info.code code, info.auctiontotal auctiontotal, trans.a_transid
+		                    from auctioninfo info inner join au_trans trans
+		                        on info.code = trans.code
+		                    order by info.auctionid desc
+		                    ) B
+		                on A.code = B.code
+		                inner join (
+		                    select count(*) counttrans, auctionid from au_trans group by auctionid
+		                    ) C
+		                on B.auctionid = C.auctionid
+		            order by auctionid desc    
+		        ) Tb
+		    )
+		    WHERE rNum between ${start} AND ${end}
+			    
+		</select>
+		
+		
+		<!-- 렌탈 작품정보 가져오기 -->
+		<select id="mainListRental" resultType="mybatis.MainDTO" parameterType="mybatis.ParameterDTO">
+			select * from (
+			    select Tb.*, rownum rNum from (
+			            select code, title, name, imageurl from arts where status = '렌탈가능' order by regidate desc
+			        ) Tb
+			    )
+			where rNum between ${start} AND ${end}
+		</select>
+		
+		
+		<!-- 경매준비중 가져오기 coming soon -->
+	      <select id="mainListComing" resultType="mybatis.MainDTO" parameterType="mybatis.ParameterDTO">
+	      
+	      select * from (
+	          select Tb.*, rownum rNum from (    
+	              select * from arts where status='경매준비중' order by a_idx desc
+	              )Tb
+	          )    
+	      where rNum between ${start} and ${end}
+	      
+	      </select>
+	      
+		<!-- 경매중 가져오기 rolling banner -->
+		<select id="mainListRolling" resultType="mybatis.MainDTO" parameterType="mybatis.ParameterDTO">
+		   select * from (
+		       select Tb.*, rownum rNum from (    
+		           select * from arts where status='지분경매' order by a_idx desc
+		           )Tb
+		       )    
+		   where rNum between ${start} and ${end}
+		</select>		
+</mapper>

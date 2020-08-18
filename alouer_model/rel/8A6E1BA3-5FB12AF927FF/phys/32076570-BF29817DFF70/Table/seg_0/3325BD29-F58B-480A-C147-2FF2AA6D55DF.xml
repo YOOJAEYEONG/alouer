@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="AUCTIONINFO" directorySegmentName="seg_0" id="3325BD29-F58B-480A-C147-2FF2AA6D55DF">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<schemaObject>28D47C7A-84E1-92EE-5940-49AEB371C03C</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>7D8E443D-D09C-E8EF-C197-EDF2604E6176</segment>
+<tableSpace>01061DF3-A7A9-544B-4E50-8B2F41475731</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="AUCTIONTOTAL" id="06E04A8C-A58D-2316-207F-C309C9886FE5">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ISFINISH" id="080D7AE8-E196-F1CD-1CD6-389934A6145B">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="STARTTIME" id="264EC599-A3D4-60C4-8DEE-1D44B90BAEE4">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CODE" id="2939F416-211F-53ED-C73B-9ACC88A06CF4">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STARTBIDS" id="B2003261-F0C2-568F-21FF-3E407575C8B5">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ENDTIME" id="B3CC568F-923A-11A4-EC43-40D2E78E6331">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="AUCTIONID" id="E935FB26-EC6F-8376-06F2-0849F4139D75">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="SYS_C0014453" id="874EB67F-F614-A010-C843-CDD0BC2FDD85">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<schemaObject>28D47C7A-84E1-92EE-5940-49AEB371C03C</schemaObject>
+<segment>9F954C0D-EB3B-045F-83F2-C243ABE25B32</segment>
+<tableSpace>01061DF3-A7A9-544B-4E50-8B2F41475731</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="AUCTIONINFO_FK" id="F34A0590-F7B8-B3DD-DE3E-7B94865541B4">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="AUCTIONINFO_PK" id="280775B4-10A1-8B4F-DF22-6ECA315645F2">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:37:15 UTC</createdTime>
+<ownerDesignName>alouer_model</ownerDesignName>
+<segment>9F954C0D-EB3B-045F-83F2-C243ABE25B32</segment>
+<tableSpace>01061DF3-A7A9-544B-4E50-8B2F41475731</tableSpace>
+<existingIndex>874EB67F-F614-A010-C843-CDD0BC2FDD85</existingIndex>
+<indexSegment>9F954C0D-EB3B-045F-83F2-C243ABE25B32</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StorageDesignOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.StorageDesignOraclev11g" name="Oracle Database 11g" id="A0592171-40F8-86B3-2874-5AF652DD8DA6" siteID="32076570-2523-435C-2E92-BF29817DFF70" siteName="Oracle Database 11g" siteType="9">
+<createdBy>Kosmo_04</createdBy>
+<createdTime>2020-08-06 05:34:16 UTC</createdTime>
+<ownerDesignName>제목 없음_1</ownerDesignName>
+</StorageDesignOraclev11g>
