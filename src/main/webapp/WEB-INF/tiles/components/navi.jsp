@@ -72,11 +72,11 @@
                         <%-- <li class="nav-item nav-item2" style="padding-top: 11px">
                            <sec:authentication property="principal.username" />
                         </li>  --%>
-                        <form:form method="post" action="${pageContext.request.contextPath }/member/logout">
-                           <li class="nav-item nav-item2">
-                              <button class="btn" type="submit">로그아웃</button>
-                           </li>
-                        </form:form>
+                        	<li class="nav-item nav-item2">
+		                       	<form:form method="post" action="${pageContext.request.contextPath }/member/logout">
+		                        	<button class="nav-link nav-link2 btn" type="submit">로그아웃</button>
+		                        </form:form>
+	                        </li>
                      </sec:authorize>
                      <!-- view/member/login.jsp 이동 -->
                      <sec:authorize access="!isAuthenticated()">
