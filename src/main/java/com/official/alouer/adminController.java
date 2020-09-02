@@ -126,11 +126,15 @@ public class adminController {
 		model.addAttribute("AuctionCount", AuctionCount);
 		
 		////진행중인 경매 종료//////금일 신규 작품 수 시작////////////
-		
-		int todayUploadArts = sqlSession.getMapper(AdminImpl.class)
-				.todayUploadArts();
-		System.out.println(todayUploadArts);
-		model.addAttribute("todayUploadArts", todayUploadArts);
+		try {
+			int todayUploadArts = sqlSession.getMapper(AdminImpl.class)
+					.todayUploadArts();
+			System.out.println(todayUploadArts);
+			model.addAttribute("todayUploadArts", todayUploadArts);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		
 		
