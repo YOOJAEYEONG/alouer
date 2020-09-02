@@ -411,7 +411,7 @@
 	
 	<!-- 관리자 메인 화면 대시 보드에 오늘 신규 등록된 작품 수 출력 -->
 	<select id="todayUploadArts" resultType="int" >
-		SELECT COUNT(*) FROM arts WHERE regidate= 
+		SELECT NVL( COUNT(*) , 0) FROM arts WHERE regidate= 
 		(SELECT TO_CHAR(SYSDATE, 'YY/MM/DD') FROM DUAL)
 	</select>	
 	
