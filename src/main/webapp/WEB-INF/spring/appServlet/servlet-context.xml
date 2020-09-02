@@ -80,11 +80,16 @@
 	 <beans:bean name="dataSource"
 	 	class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
 	 	<beans:property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
-	 	<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-
 	 	<!-- <beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/> -->
+
+	 	<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
 	 	<beans:property name="username" value="kosmo"/>
-	 	<beans:property name="password" value="1234"/>	 		
+	 	<beans:property name="password" value="1234"/>	  
+	 	<!-- 
+	 	<beans:property name="url" value="jdbc:oracle:thin:@alouerdb.ct7ir1xc2f4m.ap-northeast-2.rds.amazonaws.com:1521:ORCL"/>
+	 	<beans:property name="username" value="aliuerUser"/>
+	 	<beans:property name="password" value="T3sshutd0n?"/>	 		
+	 	-->		
 	 </beans:bean>
 	 <!-- Mybatis 빈 생성 -->
 	 <beans:bean id="sqlSessionFactory"
