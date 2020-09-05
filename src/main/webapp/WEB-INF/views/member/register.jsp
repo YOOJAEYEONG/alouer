@@ -13,6 +13,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/memberRegister.css">
+
+<!-- 아이디중복체크 ajax가 작동이 안되서 추가함  -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+
 <style>
 #idCheck{
    display: block;
@@ -150,9 +155,8 @@ $(function(){
                $('#idCheckOX').val('2');
             } 
          },
-         error: function(){
-            alert("사용 가능한 아이디입니다.");
-            /* alert("서버에러"); */
+         error: function(e){
+            alert("서버에러"+e.statusText);
          }
       });
       
