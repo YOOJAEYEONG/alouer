@@ -81,7 +81,7 @@
 
 .carousel-inner img {
 	width: 100%;
-	height: 650px;
+	height: 500px;
 	object-fit: cover;
 }
 
@@ -237,8 +237,8 @@ h1:after {
 
 
 section.Section3piece {
-	width: 1950px;
-	left: -400px;
+	/* width: 1950px; */
+	/* left: -400px; */
 }
 /* section.Section3piece .main-exchange ul li div.rolling-left {
 	width: 100px;
@@ -354,7 +354,7 @@ section.Section3piece .main-exchange {
                         style="font-size: 10px;">▲</span> + 300 %</span> -->
                   </h3>
                   <div class="banner_post_iner text-center">
-                     <a href="category.html"><h5>경매 예정 작품</h5></a> <a
+                     <a
                         href="single-blog.html"><h2>${coming.title }</h2></a>
                      <p>${coming.name }</p>
                      <%-- <p>경매 시작가</p>
@@ -370,11 +370,11 @@ section.Section3piece .main-exchange {
    </section>
 
 
-   <div class="container" style="margin-top: 164px;">
+   <div class="container" style="margin-top: 164px; margin: 110px;">
 
       <div class="artwork_section_btn">
          <div id="artwork_list_more" style="border-radius:0px;"
-            onclick="location.href='<c:url value="/stock"/>'">더 많은 거래 보기</div>
+            onclick="location.href='<c:url value="/auction"/>'">더 많은 거래 보기</div>
       </div>
    </div>
    <br />
@@ -384,6 +384,9 @@ section.Section3piece .main-exchange {
 	
 	<!------------------------ #3 롤링 주식 배너 ------------------------>
    <!-- 조각거래소 -->
+   <div class="container-fluid">
+   	
+   
    <section class="Section Section3piece">
       <article class="piecemarket">
          <article class="piece-rolling">
@@ -416,6 +419,7 @@ section.Section3piece .main-exchange {
          </article>
       </article>
    </section>
+   </div>
    <!------------------------ #3 롤링 주식 배너 END ------------------------>
 	
 	

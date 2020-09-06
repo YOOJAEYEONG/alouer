@@ -12,9 +12,9 @@
        		<tiles:insertAttribute name="carousel" />
 		</section>
 		
-        <div class="container">
+        <!-- <div class="container"> -->
        		<tiles:insertAttribute name="content" />
-        </div>
+       <!--  </div> -->
         
        <tiles:insertAttribute name="footer" />
     </body>
