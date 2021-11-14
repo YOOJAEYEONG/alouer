@@ -1,36 +1,20 @@
 package com.official.alouer;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.function.Consumer;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.xml.ws.RequestWrapper;
-
-
+import mybatis.*;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import mybatis.ArtDAOImpl;
-import mybatis.ArtistDTO;
 import util.ArtList;
 import util.EnvFileReader;
 import util.PagingUtil;
-import mybatis.ArtsDTO;
-import mybatis.AuctionDAOImpl;
-import mybatis.AuctionInfoDTO;
-import mybatis.MainDTO;
-import mybatis.MemberVO;
-import mybatis.MybatisDAOImpl;
-import mybatis.ParameterDTO;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.function.Consumer;
 
 
 @Controller

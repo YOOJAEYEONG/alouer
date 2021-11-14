@@ -53,8 +53,7 @@
 	차이점:
 	beans:constructor-arg => 생성자를 통해 초기화한다.
 	beans:property => getter를 통해 초기화 한다.
-<<<<<<< HEAD
-	-->	
+	-->
 	<!-- 네이버 메일 사용 컨텍스트 -->
 	<beans:bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
       <beans:property name="host" value="smtp.naver.com" />
@@ -80,23 +79,15 @@
 	 <beans:bean name="dataSource"
 	 	class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
 	 	<beans:property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
-	 	<!-- <beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/> -->
-
-	 	<!-- <beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-	 	<beans:property name="username" value="kosmo"/>
-	 	<beans:property name="password" value="1234"/>	   -->
-	 	
-	 	<beans:property name="url" value="jdbc:oracle:thin:@alouerdb.ct7ir1xc2f4m.ap-northeast-2.rds.amazonaws.com:1521:ORCL"/>
-	 	<beans:property name="username" value="aliuerUser"/>
-	 	<beans:property name="password" value="T3sshutd0n?"/>	 		
-	 	
+	 	<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+	 	<beans:property name="username" value="ALOUER_ADMIN"/>
+	 	<beans:property name="password" value="1234"/>
 	 </beans:bean>
 	 <!-- Mybatis 빈 생성 -->
 	 <beans:bean id="sqlSessionFactory"
 	 	class="org.mybatis.spring.SqlSessionFactoryBean">
 	 	<beans:property name="dataSource" ref="dataSource"/>
-	 	<beans:property name="mapperLocations" 
-	 		value="classpath:mybatis/mapper/*.xml"/>
+	 	<beans:property name="mapperLocations" value="classpath:mybatis/mapper/*.xml"/>
  	</beans:bean>	
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg index="0" ref="sqlSessionFactory"/>
