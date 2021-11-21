@@ -12,7 +12,7 @@
 			<div class="col-lg-12">
 				<nav class="navbar navbar-expand-lg navbar-light">
 
-					<a class="navbar-brand" href="${pageContext.request.contextPath}">
+					<a class="navbar-brand" href="/${pageContext.request.contextPath}">
 						<img src="${pageContext.request.contextPath}/img/logo.svg"
 						width="123px" alt="logo">
 					</a>

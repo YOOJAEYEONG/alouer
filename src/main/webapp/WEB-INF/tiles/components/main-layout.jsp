@@ -11,7 +11,7 @@
 		<section>
        		<tiles:insertAttribute name="carousel" />
 		</section>
-		
+
         <!-- <div class="container"> -->
        		<tiles:insertAttribute name="content" />
        <!--  </div> -->

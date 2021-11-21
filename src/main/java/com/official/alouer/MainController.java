@@ -216,8 +216,6 @@ public class MainController {
 							minPrice = sqlSession.getMapper(AuctionDAOImpl.class)
 									.getMinPrice(dto.getAuctionId());
 							dto.setMinPrice(minPrice);
-							
-							
 						} catch (Exception e) {
 							System.out.println("예외:최소낙찰가를 구하지 못함>시작가로 셋팅");
 							dto.setMinPrice(Integer.parseInt(dto.getStartBids()));
@@ -227,29 +225,20 @@ public class MainController {
 						System.out.println("최소낙찰가:"+dto.getMinPrice());
 					}
 				});	
-			
-			
 				 for(MainDTO mainDTO : Rollinglist) {
 					 for(AuctionInfoDTO auList : auctionInfoList) {
 						 if(mainDTO.getCode().equals(auList.getCode())) {
 							 mainDTO.setMinPrice(auList.getMinPrice());
 							 System.out.println("mainDTO.MinPrice:"+mainDTO.getMinPrice());
 						 }
-						 
 					 }
-					 
 				 }
-				
-				 
-				 
 				System.out.println(auctionInfoList.toString());
-				//model.addAttribute("auctionInfoList", auctionInfoList);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}	
-	      
-	      //모델 객체에 저장
-	      model.addAttribute("rollinglist", Rollinglist);
+			//모델 객체에 저장
+			model.addAttribute("rollinglist", Rollinglist);
 	      
 	      
 		/***************** #4 렌탈 작품 영역 *****************/

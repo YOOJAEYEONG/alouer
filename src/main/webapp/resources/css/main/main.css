@@ -74,7 +74,7 @@ section.Section .banner-fixed ul li span.ing-notice{background:#0F4C81; font-siz
 /*硫붿씤-議곌컖嫄곕옒�뚯텛媛�*/
 section.Section3piece{width: 100%; background: #343a40; position: relative; overflow: hidden;}
 /* section.Section3piece:before{content: ''; display: block;  position: absolute; left: 0; top: 0;  width: 100%; height: 100%; z-index: 0; background: url(/images/fo/section3pieceimg.png)  center center; background-size: cover;  -ms-background-size: cover; -o-background-size: cover; -moz-background-size: cover;  -webkit-background-size: cover; opacity: 0.1;} */
-section.Section3piece .piecemarket{position: inherit; padding: 80px 0px; z-index: 100;}
+section.Section3piece .piecemarket{position: inherit; z-index: 100;}
 section.Section3piece .piecemarket .piecemarket-margin{max-width:1200px; margin: 0 auto;}
 section.Section3piece .piecemarket .piecemarket-margin .piece-title{display:inline-block; font-size: 36px; line-height:48px; color:#fff;font-weight: 900;}
 section.Section3piece .piecemarket .piecemarket-margin p.piece-title{font-size: 16px; font-weight:300; padding-left:20px;}
